@@ -1,0 +1,27 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <rotate
+            android:drawable="@drawable/spinner1"
+            android:pivotX="50%"
+            android:pivotY="50%"
+            android:fromDegrees="0"
+            android:toDegrees="360"/>
+    </item>
+    <item>
+        <rotate
+            android:drawable="@drawable/spinner2"
+            android:pivotX="50%"
+            android:pivotY="50%"
+            android:fromDegrees="360"
+            android:toDegrees="0"/>
+    </item>
+    <item>
+        <rotate
+            android:drawable="@drawable/spinner3"
+            android:pivotX="50%"
+            android:pivotY="50%"
+            android:fromDegrees="0"
+            android:toDegrees="360"/>
+    </item>
+</layer-list>

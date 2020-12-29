@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+
+                android:layout_height="wrap_content">
+                <Space
+                    android:src="@drawable/order_confirmation"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"/>
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:cropToPadding="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/order_confirmation" />
+                <Space
+                    android:src="@drawable/order_confirmation"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/orderConfirmedText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunitosans_bold"
+                android:singleLine="true"
+                android:layout_gravity="center_horizontal"
+                android:text="Order Confirmed"
+                android:textColor="@color/text_colour_1"
+                android:textSize="17sp" />
+            <TextView
+                android:id="@+id/orderMessageText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:fontFamily="@font/nunitosans_regular"
+                android:lines="4"
+                android:text="Thank you for shopping with us.
+
+A confirmation email has been sent to Johnny@catering.com"
+                android:textColor="@color/text_colour_1"
+                android:textSize="17sp" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="0dp"
+        android:paddingStart="32dp"
+        android:paddingEnd="32dp"
+        android:layout_weight="1">
+        <TextView
+            android:id="@+id/orderNumberText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunitosans_bold"
+            android:singleLine="true"
+            android:text="Order #2300076"
+            android:textColor="@color/text_colour_1"
+            android:textSize="17sp" />
+
+        <View style="@style/DividerPadded"></View>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/deliveryEstimateTitleText"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunitosans_bold"
+                android:singleLine="true"
+                android:text="Delivery Estimate"
+                android:textColor="@color/text_colour_1"
+                android:textSize="14sp" />
+            <TextView
+                android:id="@+id/deliveryEstimateValueText"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunitosans_regular"
+                android:singleLine="true"
+                android:gravity="right"
+                android:text="Friday 25 Oct"
+                android:textColor="@color/text_colour_1"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <View style="@style/DividerPadded"></View>
+        
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            tools:listitem="@layout/order_confirmation_list_item"
+            android:layout_height="0dp">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/subTotalTitleText"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunitosans_bold"
+                android:singleLine="true"
+                android:text="Subtotal"
+                android:textColor="@color/text_colour_1"
+                android:textSize="15sp" />
+            <TextView
+                android:id="@+id/subTotalValueText"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunitosans_bold"
+                android:singleLine="true"
+                android:gravity="right"
+                android:text="£161.90"
+                android:textColor="@color/text_colour_1"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/shippingText"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunitosans_bold"
+                android:singleLine="true"
+                android:text="Shipping"
+                android:textColor="@color/text_colour_1"
+                android:textSize="15sp" />
+            <TextView
+                android:id="@+id/shippingValueText"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunitosans_bold"
+                android:singleLine="true"
+                android:gravity="right"
+                android:text="£11.50"
+                android:textColor="@color/text_colour_1"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/subtotalText"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunitosans_bold"
+                android:singleLine="true"
+                android:text="Total"
+                android:textColor="@color/text_colour_1"
+                android:textSize="15sp" />
+            <TextView
+                android:id="@+id/totalValueText"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunitosans_bold"
+                android:singleLine="true"
+                android:gravity="right"
+                android:text="£11.50"
+                android:textColor="@color/text_colour_1"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

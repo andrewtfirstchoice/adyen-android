@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/basketItems"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="uk.co.firstchoice_cs.basket.CheckoutFragment">
+
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:statusBarForeground="@color/fcBlue">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            style="@style/FCToolBar"
+            app:navigationIcon="@drawable/ic_navigate_before"
+            app:subtitle=""
+            app:title="Checkout" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/footer"
+        app:layout_constraintTop_toBottomOf="@id/app_bar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/wrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <include android:id="@+id/loginWrapper"
+                app:layout_constraintStart_toStartOf="parent"
+                android:visibility="visible"
+                app:layout_constraintTop_toTopOf="@id/wrapper"
+                layout="@layout/login_layout" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/OrderReferenceHeader"
+                style="@style/SectionHeader"
+                android:text="@string/order_reference"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/loginWrapper" />
+
+            <View
+                android:id="@+id/orderReferenceHeaderLine"
+                style="@style/BlueHeaderLine"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/OrderReferenceHeader" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:id="@+id/OrderReference"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/OrderReferenceHeader">
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_margin="8dp"
+                    android:fontFamily="@font/nunitosans_bold"
+                    android:textColor="@color/text_colour_2"
+                    android:textSize="16sp"
+                    android:text="@string/order_reference_purchase_order_number"
+                    android:layout_height="wrap_content"/>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/enter_a_reference">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/orderReferenceEditText"
+                        style="@style/PartsIDText"
+                        android:layout_width="match_parent"
+                        android:lines="1"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionDone"
+                        android:background="@color/white"
+                        android:fontFamily="@font/nunitosans_regular"
+                        android:inputType="textPersonName"
+                        android:singleLine="true" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_margin="8dp"
+                    android:fontFamily="@font/nunitosans_bold"
+                    android:textColor="@color/text_colour_2"
+                    android:textSize="16sp"
+                    android:text="@string/order_comments_instructions"
+                    android:layout_height="wrap_content"/>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:hint="@string/enter_any_comments_or_instructions_related_to_your_order">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/commentsEditText"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:imeOptions="actionDone"
+                        android:background="@color/white"
+                        android:fontFamily="@font/nunitosans_regular"
+                        android:inputType="text|textLongMessage"
+                        android:lines="6" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/headerText"
+                style="@style/SectionHeader"
+                android:text="@string/delivery_address"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/OrderReference" />
+
+            <View
+                android:id="@+id/deliveryAddressHeaderLine"
+                style="@style/BlueHeaderLine"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/headerText" />
+
+            <include
+                android:id="@+id/deliveryAddress"
+                layout="@layout/delivery_address_item"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/deliveryAddressHeaderLine" />
+
+            <View
+                style="@style/Divider"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/deliveryAddress" />
+
+            <LinearLayout
+                android:id="@+id/deliveryMethodsSection"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/deliveryAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/deliveryHeader"
+                    style="@style/SectionHeader"
+                    android:text="@string/delivery_method" />
+
+                <View
+                    android:id="@+id/deliveryLine"
+                    style="@style/BlueHeaderLine" />
+
+                <include
+                    android:id="@+id/shipping_method"
+                    layout="@layout/checkout_delivery_method"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp" />
+            </LinearLayout>
+
+
+            <View
+                style="@style/Divider"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/deliveryMethodsSection" />
+
+            <LinearLayout
+                android:id="@+id/paymentMethodsSection"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/deliveryMethodsSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/paymentHeader"
+                    style="@style/SectionHeader"
+                    android:text="@string/payment_method"/>
+
+                <View
+                    android:id="@+id/paymentHeaderLine"
+                    style="@style/BlueHeaderLine" />
+
+                <include
+                    android:id="@+id/paymentMethod"
+                    layout="@layout/checkout_payment_method"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp" />
+            </LinearLayout>
+
+            <View
+                style="@style/Divider"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/paymentMethodsSection" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/billingAddressHeader"
+                style="@style/SectionHeader"
+                android:text="@string/billing_address"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/paymentMethodsSection" />
+
+            <View
+                android:id="@+id/billingAddressHeaderLine"
+                style="@style/BlueHeaderLine"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/billingAddressHeader" />
+
+            <include
+                android:id="@+id/billingAddress"
+                layout="@layout/billing_address_item"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/billingAddressHeaderLine" />
+
+            <View
+                style="@style/Divider"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/billingAddress" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/basketHeader"
+                style="@style/SectionHeader"
+                android:text="@string/basket"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/billingAddress"
+                tools:text="Basket 2 Items" />
+
+            <View
+                android:id="@+id/basketHeaderLine"
+                style="@style/BlueHeaderLine"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/basketHeader" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxHeight="500dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/basketHeaderLine"
+                tools:itemCount="10"
+                tools:listitem="@layout/checkout_basket_item" />
+            <View
+                style="@style/Divider"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/recycler" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/totalsHeader"
+                style="@style/SectionHeader"
+                android:text="@string/totals"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/recycler"
+                tools:text="Totals" />
+
+            <View
+                android:id="@+id/totalsHeaderLine"
+                style="@style/BlueHeaderLine"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/totalsHeader" />
+
+            <include
+                android:id="@+id/summary"
+                layout="@layout/order_summary"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/totalsHeaderLine" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+    <View
+        style="@style/Divider"
+        app:layout_constraintStart_toStartOf="parent"
+        android:translationZ="100dp"
+        app:layout_constraintBottom_toTopOf="@id/footer" />
+    <uk.co.firstchoice_cs.core.widgets.FooterWidget
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="8dp"
+        app:buttonTextFW="Place Order"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:subtitleTextFW=""
+        app:titleTextFW="Total to Pay" />
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:indeterminate="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:indeterminateDrawable="@drawable/fc_progress"
+        android:indeterminateDuration="1000"
+        android:visibility="gone"
+        tools:visibility="visible" />
+</androidx.constraintlayout.widget.ConstraintLayout>

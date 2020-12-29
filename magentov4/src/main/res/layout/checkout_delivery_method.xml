@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:background="@android:color/white"
+    android:orientation="horizontal">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/endguideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.85" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/selectText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/endguideline"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:ellipsize="marquee"
+        android:fontFamily="@font/nunitosans_regular"
+        android:singleLine="true"
+        tools:visibility="visible"
+        android:text="Select a Delivery Method"
+        android:textSize="14sp" />
+
+
+    <ImageView
+        android:id="@+id/leading"
+        app:tint="@color/text_colour_1"
+        android:paddingTop="8dp"
+        android:layout_width="20dp"
+        android:layout_height="28dp"
+        android:visibility="visible"
+        app:layout_goneMarginStart="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:contentDescription="@string/image"
+        android:src="@drawable/box_icon"
+        tools:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/deliveryTypeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ellipsize="marquee"
+        android:fontFamily="@font/nunitosans_bold"
+        android:singleLine="true"
+        android:textColor="@color/text_colour_1"
+        android:textSize="14sp"
+        android:layout_marginStart="8dp"
+        tools:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/leading"
+        app:layout_constraintEnd_toStartOf="@id/descriptionText"
+        app:layout_constraintStart_toEndOf="@id/leading"
+        app:layout_constraintTop_toTopOf="@id/leading"
+        tools:text="Fed Ex" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/descriptionText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nunitosans_bold"
+        android:lines="1"
+        android:layout_marginStart="4dp"
+        android:textColor="@color/text_colour_1"
+        android:textSize="14sp"
+        tools:visibility="gone"
+        app:layout_constraintTop_toTopOf="@id/deliveryTypeText"
+        app:layout_constraintEnd_toStartOf="@id/endguideline"
+        app:layout_constraintStart_toEndOf="@id/deliveryTypeText"
+        app:layout_constraintBottom_toBottomOf="@id/deliveryTypeText"
+        tools:text="Next Working Day" />
+
+    <uk.co.firstchoice_cs.core.widgets.PriceWidget
+        android:id="@+id/priceWidget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="8dp"
+        android:layout_marginTop="8dp"
+        tools:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionText" />
+
+
+    <ImageView
+        android:id="@+id/check"
+        style="@style/trailing_check"
+        android:src="@drawable/ic_navigate_next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

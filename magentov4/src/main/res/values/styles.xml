@@ -1,0 +1,457 @@
+<resources>
+
+    <style name="AppTheme.Launcher">
+        <item name="android:windowBackground">@drawable/launch_screen</item>
+        <item name="colorPrimaryDark">@android:color/white</item>
+    </style>
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/fcBlue</item>
+        <item name="colorPrimaryDark">@color/accentBlue</item>
+        <item name="colorAccent">@color/fcRed</item>
+        <item name="alertDialogTheme">@style/AlertDialogTheme</item>
+        <item name="android:statusBarColor">@color/fcBlue</item>
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:windowActivityTransitions">true</item>
+    </style>
+
+    <style name="FCToolBar">
+        <item name="android:layout_width">match_parent</item>
+       <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+        <item name="android:background">?colorPrimary</item>
+        <item name="android:theme">@style/Base_ToolbarTheme</item>
+        <item name="titleTextAppearance">@style/CustomTitleTextAppearance</item>
+        <item name="android:actionMenuTextColor">@color/white</item>
+        <item name="subtitleTextAppearance">@style/CustomSubTitleTextAppearance</item>
+    </style>
+
+    <style name="Base_ToolbarTheme" parent="ThemeOverlay.MaterialComponents.Toolbar.Primary">
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">@color/white</item>
+    </style>
+
+    <style name="CustomTitleTextAppearance" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:fontFamily">@font/nunitosans_bold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/fcRed</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="CustomSubTitleTextAppearance" parent="TextAppearance.Widget.AppCompat.Toolbar.Subtitle">
+        <item name="android:fontFamily">@font/nunitosans_regular</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="fcToolBarSearch" parent="Base_ToolbarTheme">
+        <item name="fontFamily">@font/nunitosans_regular</item>
+        <item name="colorPrimaryDark">@color/accentBlue</item>
+        <item name="colorAccent">@color/fcRed</item>
+        <item name="alertDialogTheme">@style/AlertDialogTheme</item>
+        <item name="android:statusBarColor">@color/fcBlue</item>
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:windowActivityTransitions">true</item>
+    </style>
+
+
+    <style name="downloadPlusIcon">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:padding">35dp</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:scaleType">fitCenter</item>
+        <item name="android:tint">@color/fcRed</item>
+    </style>
+
+    <style name="PartsIDText">
+        <item name="android:textColor">@color/text_colour_1</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:layout_marginEnd">8dp</item>
+    </style>
+
+
+    <style name="SearchBarTheme" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar">
+        <item name="colorPrimary">@color/fcBlue</item>
+        <item name="colorPrimaryDark">@color/accentBlue</item>
+        <item name="colorAccent">@color/fcRed</item>
+    </style>
+
+    <style name="AlertDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="buttonBarNegativeButtonStyle">@style/NegativeButtonStyle</item>
+        <item name="buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
+    </style>
+
+    <style name="Divider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@color/text_colour_1</item>
+        <item name="android:layout_height">1px</item>
+    </style>
+
+
+    <style name="NegativeButtonStyle" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
+        <item name="android:textColor">@color/fcRed</item>
+    </style>
+
+    <style name="PositiveButtonStyle" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
+        <item name="android:textColor">@color/fcBlue</item>
+    </style>
+
+
+    <style name="RippleStyleCard">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+    </style>
+
+
+    <style name="DividerVertical">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1px</item>
+        <item name="android:background">@color/fcLightGrey</item>
+    </style>
+
+
+    <style name="StandardMaterialButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="backgroundTint">@color/fcRed</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="strokeColor">@color/white</item>
+        <item name="android:layout_centerInParent">true</item>
+    </style>
+
+
+    <style name="RedMaterialButton" parent="StandardMaterialButton">
+        <item name="android:backgroundTint">@drawable/red_button_selector</item>
+    </style>
+
+    <style name="BlueMaterialButton" parent="StandardMaterialButton">
+        <item name="android:backgroundTint">@drawable/blue_button_selector</item>
+    </style>
+
+    <style name="DarkPurpleMaterialButton" parent="StandardMaterialButton">
+        <item name="android:backgroundTint">@drawable/purple_button_selector</item>
+    </style>
+
+
+    <style name="NavigationChip">
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_width">30dp</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="chipBackgroundColor">@android:color/transparent</item>
+        <item name="ensureMinTouchTargetSize">true</item>
+        <item name="chipIconTint">@color/fcLightGrey</item>
+        <item name="chipMinTouchTargetSize">30dp</item>
+        <item name="chipIcon">@drawable/ic_navigate_next</item>
+    </style>
+
+    <style name="NavigationChipRed" parent="TextAppearance.MaterialComponents.Chip">
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="chipBackgroundColor">@android:color/transparent</item>
+        <item name="ensureMinTouchTargetSize">true</item>
+        <item name="chipMinTouchTargetSize">30dp</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:fontFamily">@font/nunitosans_regular</item>
+    </style>
+
+
+    <style name="NavigationChipBlue">
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="chipBackgroundColor">@android:color/transparent</item>
+        <item name="ensureMinTouchTargetSize">true</item>
+        <item name="chipMinTouchTargetSize">30dp</item>
+    </style>
+
+    <style name="FCProgressSpinner" parent="@android:style/Widget.ProgressBar">
+        <item name="android:indeterminateDuration">1000</item>
+        <item name="android:indeterminateDrawable">@drawable/fc_progress</item>
+        <item name="android:minWidth">50dip</item>
+        <item name="android:maxWidth">50dip</item>
+        <item name="android:minHeight">50dip</item>
+        <item name="android:maxHeight">50dip</item>
+    </style>
+
+
+    <style name="MyCustomTabText" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">14sp</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+
+    <style name="LargeRedButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:backgroundTint">@drawable/red_button_selector</item>
+        <item name="android:fontFamily">@font/nunitosans_bold</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="cornerRadius">4dp</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="SmallRedButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:backgroundTint">@drawable/red_button_selector</item>
+        <item name="android:fontFamily">@font/nunitosans_bold</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="cornerRadius">4dp</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+
+    <style name="DividerPadded">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@color/text_colour_1</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:layout_height">1px</item>
+    </style>
+
+
+    <style name="IconOnlyButton" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:minWidth">0dp</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="iconGravity">textStart</item>
+        <item name="iconPadding">0dp</item>
+        <item name="rippleColor">?colorOnPrimary</item>
+    </style>
+
+
+    <style name="SmallWhiteButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:backgroundTint">@drawable/white_button_selector</item>
+        <item name="android:fontFamily">@font/nunitosans_bold</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="cornerRadius">4dp</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="AddChip">
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_toEndOf">@id/favIcon</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+
+    <style name="DocumentManufacturer">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/text_colour_1</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="DocumentDescription">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">2dp</item>
+        <item name="android:textColor">@color/fcDarkGrey</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="DocumentLastViewed">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/text_colour_1</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="DocumentProgressText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/text_colour_1</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="DocumentModel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/text_colour_1</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="roundedImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">20%</item>
+    </style>
+
+    <style name="ThreeSixtyStyle" parent="@style/Widget.MaterialComponents.CardView">
+        <item name="shapeAppearanceOverlay">@style/RoundedTopLeft</item>
+    </style>
+
+    <style name="Rounded8dp" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">8dp</item>
+        <item name="cornerSizeTopLeft">8dp</item>
+        <item name="cornerSizeBottomRight">8dp</item>
+        <item name="cornerSizeBottomLeft">8dp</item>
+    </style>
+
+    <style name="RoundedTopLeft" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">0dp</item>
+        <item name="cornerSizeTopLeft">16dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+    </style>
+
+    <style name="RoundedLeft8dp" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">0dp</item>
+        <item name="cornerSizeTopLeft">8dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+        <item name="cornerSizeBottomLeft">8dp</item>
+    </style>
+
+    <style name="BlueIconButton" parent="Widget.MaterialComponents.Button.Icon">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+    </style>
+
+    <style name="AppTheme.BlueAccent">
+        <item name="colorAccent">@color/fcBlue</item> <!-- Whatever color you want-->
+    </style>
+
+    <style name="trailing_check">
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:tint">@color/text_colour_1</item>
+    </style>
+
+    <style name="BlueHeaderLine">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">3dp</item>
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:background">@color/blue_header_line</item>
+    </style>
+
+    <style name="CardTitle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:fontFamily">@font/nunitosans_bold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/text_colour_2</item>
+    </style>
+
+    <style name="CardSubTitle">
+        <item name="android:fontFamily">@font/nunitosans_regular</item>
+        <item name="android:textColor">@color/text_colour_2</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="SectionTitle">
+        <item name="android:fontFamily">@font/nunitosans_bold</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">@color/text_colour_2</item>
+    </style>
+
+    <style name="SectionHeader">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingEnd">8dp</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">16dp</item>
+        <item name="android:textColor">@color/blue_header_line</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">@font/nunitosans_extrabold</item>
+    </style>
+    <style name="SectionItem">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingEnd">8dp</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">16dp</item>
+        <item name="android:textColor">@color/text_colour_1</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/nunitosans_regular</item>
+    </style>
+
+    <style name="ListItemTitle">
+        <item name="android:tint">@color/text_colour_2</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/nunitosans_regular</item>
+    </style>
+
+    <style name="filterTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentStart">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:fontFamily">@font/nunitosans_regular</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">#222222</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="filterDescription">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:gravity">end</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:fontFamily">@font/nunitosans_regular</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">#222222</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:visibility">visible</item>
+    </style>
+
+    <style name="filterItem">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingEnd">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+    </style>
+
+    <style name="TextLimitStyle" parent="TextAppearance.AppCompat.Small">
+    <item name="android:textColor">@color/fcBlue</item>
+        <item name="android:fontFamily">@font/nunitosans_bold</item>
+    </style>
+
+    <style name="TextLimitError" parent="TextAppearance.AppCompat.Small">
+        <item name="android:fontFamily">@font/nunitosans_regular</item>
+    <item name="android:textColor">@color/fcRed</item>
+    </style>
+
+</resources>

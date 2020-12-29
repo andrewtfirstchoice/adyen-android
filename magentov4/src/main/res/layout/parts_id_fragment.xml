@@ -1,0 +1,644 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:descendantFocusability="beforeDescendants"
+    android:id="@+id/wrapper"
+    android:orientation="vertical"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:animateLayoutChanges="true"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            style="@style/FCToolBar"
+            app:menu="@menu/action_menu_parts_id"
+            app:subtitle="Let us identify your part for you"
+            app:title="Parts ID" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <uk.co.firstchoice_cs.core.scroll_aware.ScrollAwareScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+                <!-- Identification information !-->
+                <LinearLayout
+                    android:id="@+id/informationBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="16dp"
+                        android:contentDescription="@string/image"
+                        android:src="@drawable/icon_parts"
+                        app:tint="@color/text_colour_1" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:orientation="vertical">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/PartsIDText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nunitosans_regular"
+                            android:text="@string/identification_information"
+                            android:textAlignment="textStart" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/PartsIDText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nunitosans_regular"
+                            android:text="@string/take_up_to_three_pictures_of_your_part_and_we_will_try_and_identify_it_for_you"
+                            android:textAlignment="textStart" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    style="@style/DividerVertical"
+                    android:layout_marginTop="8dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:hint="@string/equipment_manufacturer_required">
+
+                        <uk.co.firstchoice_cs.core.widgets.ClearFocusAutoCompleteTextView
+                            android:id="@+id/partsIDManufacturerAuto"
+                            style="@style/Widget.MaterialComponents.AutoCompleteTextView.FilledBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:inputType="textAutoComplete"
+                            android:imeOptions="actionNext"
+                            android:fontFamily="@font/nunitosans_regular"
+                            android:lines="1"
+                            android:maxLines="1"
+                            android:textSize="12sp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:hint="@string/enter_equipment_model_number">
+
+                        <uk.co.firstchoice_cs.core.widgets.ClearFocusAutoCompleteTextView
+                            android:id="@+id/partsIDModelEditAuto"
+                            style="@style/Widget.MaterialComponents.AutoCompleteTextView.FilledBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:inputType="textAutoComplete"
+                            android:imeOptions="actionNext"
+                            android:fontFamily="@font/nunitosans_regular"
+                            android:lines="1"
+                            android:textSize="12sp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/enter_equipment_serial_number">
+
+                        <uk.co.firstchoice_cs.core.widgets.ClearFocusEditText
+                            android:id="@+id/partsIDSerialEdit"
+                            style="@style/PartsIDText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:inputType="text"
+                            android:imeOptions="actionNext"
+                            android:fontFamily="@font/nunitosans_regular"
+                            android:lines="1"
+                            android:maxLines="1" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/permissionsLayout"
+                        android:layout_width="match_parent"
+                        android:contentDescription="@string/image"
+                        android:visibility="visible"
+                        android:layout_margin="8dp"
+                        android:layout_height="200dp">
+                        <RelativeLayout
+                            android:background="#ededed"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/cameraImage"
+                                android:layout_width="wrap_content"
+                                android:layout_height="60dp"
+                                android:layout_centerInParent="true"
+                                android:adjustViewBounds="true"
+                                android:cropToPadding="true"
+                                android:src="@drawable/camera"
+                                android:contentDescription="@string/image"
+                                app:tint="@color/fcLightGrey" />
+                            <TextView
+                                android:id="@+id/text"
+                                android:layout_below="@id/cameraImage"
+                                android:layout_centerHorizontal="true"
+                                android:text="@string/camera_access_is_required"
+                                android:fontFamily="@font/nunitosans_bold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                            <TextView
+                                android:layout_below="@id/text"
+                                android:text="@string/enable_camera_access"
+                                android:layout_centerHorizontal="true"
+                                android:fontFamily="@font/nunitosans_regular"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                        </RelativeLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                    <LinearLayout
+                    android:id="@+id/photoWrapper"
+                    android:layout_width="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="16dp"
+                        android:contentDescription="@string/image"
+                        android:src="@drawable/camera"
+                        app:tint="@color/fcDarkGrey" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:orientation="vertical">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/PartsIDText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nunitosans_regular"
+                            android:text="@string/photo_selection"
+                            android:textAlignment="textStart" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/PartsIDText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nunitosans_regular"
+                            android:text="@string/take_up_to_three_pictures_of_the_part_to_help_us_identify_it_for_you"
+                            android:textAlignment="textStart" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View style="@style/DividerVertical" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:focusable="false"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/PartsIDText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/nunitosans_regular"
+                        android:text="@string/parts_message_1" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/PartsIDText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunitosans_regular"
+                        android:text="@string/parts_message_2" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/PartsIDText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunitosans_regular"
+                        android:text="@string/parts_message_3" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/PartsIDText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:fontFamily="@font/nunitosans_regular"
+                        android:text="@string/parts_message_4" />
+                </LinearLayout>
+                <!-- Photo selection information !-->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+
+
+                    <com.google.android.material.card.MaterialCardView
+                        style="@style/RippleStyleCard"
+                        android:id="@+id/imageWrapper1"
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="2dp"
+                        app:cardBackgroundColor="@color/fcLighterGrey"
+                        app:rippleColor="@color/fcBlue"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:elevation="8dp"
+                        app:cardCornerRadius="8dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/download1ImageView"
+                                style="@style/downloadPlusIcon"
+                                android:contentDescription="@string/image"
+                                android:src="@drawable/icon_plus" />
+
+                            <uk.co.firstchoice_cs.core.widgets.SquareImageView
+                                android:id="@+id/image1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_centerInParent="true"
+                                android:scaleType="centerCrop" />
+                        </RelativeLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        style="@style/RippleStyleCard"
+                        android:id="@+id/imageWrapper3"
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="2dp"
+                        app:rippleColor="@color/fcBlue"
+                        app:cardBackgroundColor="@color/fcLighterGrey"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:elevation="8dp"
+                        app:cardCornerRadius="8dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/download3ImageView"
+                                style="@style/downloadPlusIcon"
+                                android:contentDescription="@string/image"
+                                android:src="@drawable/icon_plus" />
+
+                            <uk.co.firstchoice_cs.core.widgets.SquareImageView
+                                android:id="@+id/image3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_centerInParent="true"
+                                android:background="@color/fcLighterGrey"
+                                android:scaleType="centerCrop" />
+                        </RelativeLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        style="@style/RippleStyleCard"
+                        android:id="@+id/imageWrapper2"
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="2dp"
+                        app:rippleColor="@color/fcBlue"
+                        app:cardBackgroundColor="@color/fcLighterGrey"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:elevation="8dp"
+                        app:cardCornerRadius="8dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/download2ImageView"
+                                style="@style/downloadPlusIcon"
+                                android:contentDescription="@string/image"
+                                android:src="@drawable/icon_plus" />
+
+                            <uk.co.firstchoice_cs.core.widgets.SquareImageView
+                                android:id="@+id/image2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_centerInParent="true"
+                                android:scaleType="centerCrop" />
+                        </RelativeLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+                </LinearLayout>
+
+                <!-- Comment Section !-->
+                <View style="@style/DividerVertical" />
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/comments"
+                    android:fontFamily="@font/nunitosans_regular"
+                    android:textColor="@color/text_colour_1" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:hint="@string/add_additional_information">
+
+                    <uk.co.firstchoice_cs.core.widgets.ClearFocusEditText
+                        android:id="@+id/partsIDMAdditionalEdit"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:imeOptions="actionNext"
+                        android:background="@color/white"
+                        android:fontFamily="@font/nunitosans_regular"
+                        android:inputType="text|textLongMessage"
+                        android:lines="6" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <View style="@style/DividerVertical" />
+                </LinearLayout>
+
+                </RelativeLayout>
+                <!-- Input Section !-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="16dp"
+                            android:contentDescription="@string/image"
+                            android:src="@drawable/icon_chat"
+                            app:tint="@color/fcDarkGrey" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="16dp"
+                            android:orientation="vertical">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                style="@style/PartsIDText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/nunitosans_regular"
+                                android:text="@string/contact_information"
+                                android:textAlignment="textStart" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                style="@style/PartsIDText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/nunitosans_regular"
+                                android:text="@string/provide_your_contact_details_below_so_we_can_get_in_touch"
+                                android:textAlignment="textStart" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/full_name_required">
+
+                        <uk.co.firstchoice_cs.core.widgets.ClearFocusEditText
+                            android:id="@+id/partsIDNameEdit"
+                            style="@style/PartsIDText"
+                            android:layout_width="match_parent"
+                            android:lines="1"
+                            android:layout_height="wrap_content"
+                            android:imeOptions="actionNext"
+                            android:background="@color/white"
+                            android:fontFamily="@font/nunitosans_regular"
+                            android:inputType="textPersonName"
+                            android:singleLine="true" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/company_required">
+
+                        <uk.co.firstchoice_cs.core.widgets.ClearFocusEditText
+                            android:id="@+id/partsIDCompanyEdit"
+                            style="@style/PartsIDText"
+                            android:layout_width="match_parent"
+                            android:lines="1"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:fontFamily="@font/nunitosans_regular"
+                            android:inputType="text"
+                            android:singleLine="true" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/postcode_required">
+
+                            <uk.co.firstchoice_cs.core.widgets.ClearFocusEditText
+                                android:id="@+id/partsIDPostCode"
+                                style="@style/PartsIDText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/white"
+                                android:fontFamily="@font/nunitosans_regular"
+                                android:textColor="@color/text_colour_1"
+                                android:textSize="13sp"
+                                android:inputType="textPersonName"
+                                android:singleLine="true" />
+
+
+                        </com.google.android.material.textfield.TextInputLayout>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginStart="8dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="8dp"
+                            android:layout_height="wrap_content">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_height="wrap_content"
+                                android:text="@string/why_are_we_asking_for_this"
+                                android:fontFamily="@font/nunitosans_regular"
+                                android:textSize="13sp"
+                                android:textColor="@color/fcBlue" />
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/questionButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:tint="@color/fcBlue"
+                                app:srcCompat="@drawable/ic_help_24px"/>
+                        </LinearLayout>
+                    </RelativeLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/email_address_required">
+
+                        <uk.co.firstchoice_cs.core.widgets.ClearFocusEditText
+                            android:id="@+id/partsIDEmailEdit"
+                            style="@style/PartsIDText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:imeOptions="actionNext"
+                            android:lines="1"
+                            android:inputType="textEmailAddress"
+                            android:fontFamily="@font/nunitosans_regular"
+                            android:singleLine="true" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/contact_phone">
+
+                        <uk.co.firstchoice_cs.core.widgets.ClearFocusEditText
+                            android:id="@+id/partsIDPhoneEdit"
+                            style="@style/PartsIDText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:lines="1"
+                            android:imeOptions="actionDone"
+                            android:background="@color/white"
+                            android:inputType="phone"
+                            android:fontFamily="@font/nunitosans_regular"
+                            android:singleLine="true" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+
+                <View style="@style/DividerVertical" />
+
+
+                <!-- Button Section !-->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnHelpIDPart"
+                    style="@style/SmallRedButton"
+                    android:layout_margin="16dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="32dp"
+                    android:text="@string/submit_your_request" />
+            </LinearLayout>
+        </uk.co.firstchoice_cs.core.scroll_aware.ScrollAwareScrollView>
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@style/FCProgressSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:indeterminate="true" />
+
+</LinearLayout>

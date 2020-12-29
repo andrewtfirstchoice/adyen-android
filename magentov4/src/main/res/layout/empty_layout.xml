@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#FFFFFF"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/endguideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.85" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startguideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.15" />
+
+
+
+    <ImageView
+        android:id="@+id/emptyImage"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:contentDescription="@string/magnifying_glass"
+        android:src="@drawable/ic_search_black_24dp"
+        app:tint="@color/text_colour_1"
+        app:layout_constraintBottom_toTopOf="@+id/emptyTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/emptyTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/nunitosans_semibold"
+        android:textColor="@color/text_colour_1"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/emptyDescription"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emptyImage"
+        tools:text="No Manuals Found" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/emptyDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/nunitosans_regular"
+        android:gravity="center"
+        android:textColor="@color/text_colour_1"
+        android:textSize="15sp"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/endguideline"
+        app:layout_constraintStart_toStartOf="@id/startguideline"
+        app:layout_constraintTop_toBottomOf="@+id/emptyTitle"
+        tools:text="Try clearing your filters or broadening you search" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/emptyButton"
+        app:layout_constraintTop_toBottomOf="@+id/emptyDescription"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        style="@style/RedMaterialButton"
+        tools:text="Placeholder" />
+</androidx.constraintlayout.widget.ConstraintLayout>

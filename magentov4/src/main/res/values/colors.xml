@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="fcRed">#E04D39</color>
+    <color name="fcBlue">#2050AC</color>
+    <color name="accentBlue">#1D366F</color>
+    <color name="navBarColor">#EDEDED</color>
+    <item name="fcLightGrey" type="color">#999999</item>
+    <item name="fcDarkGrey" type="color">#333333</item>
+    <item name="fcLighterGrey" type="color">#FAFAFA</item>
+    <item name="black" type="color">#000000</item>
+    <item name="white" type="color">#FFFFFF</item>
+    <color name="on_boarding_blue">#0055af</color>
+    <color name="lp_dark_gray_1">#444444</color>
+    <color name="more_facebook_tint">#3b5998</color>
+    <color name="more_twitter_tint">#1DA1F2</color>
+    <color name="dark_purple">#003373</color>
+    <color name="light_background">#F7F7F7</color>
+    <color name="gold">#ffd700</color>
+    <color name="green">#4bb441</color>
+    <color name="background_color_purple">#383353</color>
+    <color name="text_colour_1">#141414</color>
+    <color name="text_colour_2">#222222</color>
+    <color name="text_colour_3">#434343</color>
+    <color name="blue_header_line">#013573</color>
+    <color name="item_selected_background_color">#C7C7CC</color>
+</resources>

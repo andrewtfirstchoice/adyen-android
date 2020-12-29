@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_more"
+    app:startDestination="@+id/contact_us_fragment"
+    tools:ignore="UnusedNavigation">
+
+    <fragment
+        android:id="@+id/contact_us_fragment"
+        android:name="uk.co.firstchoice_cs.more.ContactUsFragment"
+        android:label="Contact Us"
+        tools:layout="@layout/contact_us_fragment">
+        <action
+            android:id="@+id/action_contact_us_to_our_location_fragment"
+            app:destination="@id/our_location_fragment"/>
+
+        <action
+            android:id="@+id/action_contact_us_web_fragment"
+            app:destination="@id/web_fragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_contact_us_to_whats_new_fragment"
+            app:destination="@id/whats_new_fragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_contact_us_fragment_to_suggestAFeature"
+            app:destination="@id/suggest_a_feature_fragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_contact_us_fragment_to_feedback"
+            app:destination="@id/feedback_fragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_contact_us_to_preferences_fragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"
+            app:destination="@id/preferences_fragment"/>
+        <action
+            android:id="@+id/action_more_fragment_to_accountOrdersFragment"
+            app:destination="@id/accountOrdersFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+
+        <action
+            android:id="@+id/action_more_fragment_to_signInFragment"
+            app:destination="@id/signInFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+
+        <action
+            android:id="@+id/action_more_fragment_to_accountFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"
+            app:destination="@id/accountFragmentMore" />
+        <action
+            android:id="@+id/action_more_fragment_to_deliveryAddressFragment"
+            app:destination="@id/deliveryAddressFragmentMore"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/feedback_fragment"
+        android:name="uk.co.firstchoice_cs.more.FeedbackFragment"
+        android:label="Send Us Feedback"
+        tools:layout="@layout/fragment_feedback" />
+
+    <fragment
+        android:id="@+id/suggest_a_feature_fragment"
+        android:name="uk.co.firstchoice_cs.more.SuggestAFeature"
+        android:label="Suggest a Feature"
+        tools:layout="@layout/fragment_suggest_a_feature" />
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="uk.co.firstchoice_cs.core.shared.SignInFragment"
+        tools:layout="@layout/fragment_sign_in"
+        android:label="SignInFragment" >
+        <action
+            android:id="@+id/action_signInFragment_pop_including_more_fragment"
+            app:popUpTo="@id/contact_us_fragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/our_location_fragment"
+        android:name="uk.co.firstchoice_cs.more.OurLocationFragment"
+        android:label="Our Location"
+        tools:layout="@layout/our_location_fragment">
+    </fragment>
+    <fragment
+        android:id="@+id/web_fragment"
+        android:name="uk.co.firstchoice_cs.more.WebFragment"
+        android:label="Web Fragment"
+        tools:layout="@layout/fragment_web">
+    </fragment>
+    <fragment
+        android:id="@+id/whats_new_fragment"
+        android:name="uk.co.firstchoice_cs.more.WhatsNewFragment"
+        android:label="What's New"
+        tools:layout="@layout/whats_new_fragment">
+    </fragment>
+    <fragment
+        android:id="@+id/accountOrdersFragment"
+        tools:layout="@layout/account_orders_fragment"
+        android:name="uk.co.firstchoice_cs.more.AccountOrdersFrag"
+        android:label="AccountOrdersFragment" >
+        <action
+            android:id="@+id/action_accountOrdersFragment_to_accountOrderDetailsFragment"
+            app:destination="@id/accountOrderDetailsFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/accountOrderDetailsFragment"
+        android:name="uk.co.firstchoice_cs.more.AccountOrderDetailsFragment"
+        android:label="Order Details"
+        tools:layout="@layout/fragment_account_order_details" />
+    <fragment
+        android:id="@+id/deliveryAddressFragmentMore"
+        android:name="uk.co.firstchoice_cs.more.DeliveryAddresses"
+        android:label="Delivery Addresses"
+        tools:layout="@layout/fragment_delivery_addresses" >
+        <action
+            android:id="@+id/action_deliveryAddressFragment_to_addNewAddressFragment"
+            app:destination="@id/addNewAddressFragmentMore"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addNewAddressFragmentMore"
+        android:name="uk.co.firstchoice_cs.basket.AddNewAddressFragment"
+        android:label="Add New Addresses"
+        tools:layout="@layout/fragment_add_new_address" />
+
+
+    <fragment
+        android:id="@+id/accountFragmentMore"
+        android:name="uk.co.firstchoice_cs.core.shared.AccountFragment"
+        tools:layout="@layout/fragment_account"
+        android:label="AccountFragment" />
+
+    <fragment
+        android:id="@+id/preferences_fragment"
+        android:name="uk.co.firstchoice_cs.more.PreferencesFragment"
+        android:label="Preferences"
+        tools:layout="@layout/preferences_fragment">
+
+        <action
+            android:id="@+id/action_preferences_fragment_to_contactDetailsFragmentPrefs"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"
+            app:destination="@id/contact_details_prefs" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/contact_details_prefs"
+        android:name="uk.co.firstchoice_cs.core.shared.ContactDetailsFragment"
+        tools:layout="@layout/fragment_contact_details"
+        android:label="Contact Details" />
+
+</navigation>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@android:color/white">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/manufacturerText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:fontFamily="@font/nunitosans_regular"
+        android:singleLine="true"
+        tools:text="Rational"
+        android:textColor="@color/text_colour_1"
+        android:textSize="13sp" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/partIDText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/manufacturerText"
+        app:layout_constraintStart_toStartOf="parent"
+        android:fontFamily="@font/nunitosans_extrabold"
+        android:singleLine="true"
+        tools:text="56.00.210"
+        android:textColor="@color/text_colour_1"
+        android:textSize="14sp" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/qtyText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/partIDText"
+        app:layout_constraintStart_toStartOf="parent"
+        android:fontFamily="@font/nunitosans_semibold"
+        android:singleLine="true"
+        tools:text="Qty: 2"
+        android:textColor="@color/text_colour_1"
+        android:textSize="14sp" />
+
+    <uk.co.firstchoice_cs.core.widgets.PriceWidget
+        android:id="@+id/priceWidget"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/manufacturerText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

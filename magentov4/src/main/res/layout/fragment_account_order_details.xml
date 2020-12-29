@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/basketItems"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="uk.co.firstchoice_cs.basket.OrderConfirmationFragment">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:statusBarForeground="@color/fcBlue">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            style="@style/FCToolBar"
+            app:navigationIcon="@drawable/ic_navigate_before"
+            app:subtitle=""
+            app:title="Order Details" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/reorderButton"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:fontFamily="@font/nunitosans_regular"
+        android:text="@string/reorder"
+        android:textAllCaps="false"
+        android:textColor="#141414"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toStartOf="@+id/needHelpButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/app_bar" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/needHelpButton"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:fontFamily="@font/nunitosans_regular"
+        android:text="@string/need_help"
+        android:textAllCaps="false"
+        android:textColor="#141414"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/reorderButton"
+        app:layout_constraintTop_toBottomOf="@id/app_bar" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/needHelpButton">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/orderStatusHeader"
+                style="@style/SectionHeader"
+                android:layout_width="match_parent"
+                android:text="@string/order_status"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/orderHeaderLine"
+                style="@style/BlueHeaderLine"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/orderStatusHeader" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/orderNumberTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/nunitosans_regular"
+                android:singleLine="true"
+                android:textColor="#141414"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/orderHeaderLine"
+                tools:text="Order Number #0000123456"
+                tools:visibility="visible" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/statusTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/nunitosans_semibold"
+                android:singleLine="true"
+                android:textColor="#141414"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/orderNumberTxt"
+                tools:text="Shipped"
+                tools:visibility="visible" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/dateTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/nunitosans_regular"
+                android:singleLine="true"
+                android:textColor="#141414"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/statusTxt"
+                tools:text="Date Ordered 11/10/2019"
+                tools:visibility="visible" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/numItemsTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/nunitosans_regular"
+                android:singleLine="true"
+                android:textColor="#141414"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dateTxt"
+                tools:text="2 Items"
+                tools:visibility="visible" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/deliveryMethodAddressHeader"
+                style="@style/SectionHeader"
+                android:text="@string/delivery_method"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/numItemsTxt" />
+
+            <View
+                android:id="@+id/deliveryMethodAddressHeaderLine"
+                style="@style/BlueHeaderLine"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/deliveryMethodAddressHeader" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/shipping_method"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/nunitosans_regular"
+                android:singleLine="true"
+                android:textColor="#141414"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/deliveryMethodAddressHeaderLine"
+                tools:text="FedEx - Next Day Delivery"
+                tools:visibility="visible" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/deliverToName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/nunitosans_semibold"
+                android:singleLine="true"
+                android:textColor="#141414"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/shipping_method"
+                tools:text="Johnny McJonathon"
+                tools:visibility="visible" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/address1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/nunitosans_regular"
+                android:singleLine="true"
+                android:textColor="#141414"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/deliverToName"
+                tools:text="Blakeney Way"
+                tools:visibility="visible" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/address2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/nunitosans_regular"
+                android:singleLine="true"
+                android:textColor="#141414"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/address1"
+                tools:text="Cannock"
+                tools:visibility="visible" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/postCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/nunitosans_regular"
+                android:singleLine="true"
+                android:textColor="#141414"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/address2"
+                tools:text="WS11 8LD"
+                tools:visibility="visible" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/telephoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/nunitosans_regular"
+                android:paddingBottom="8dp"
+                android:singleLine="true"
+                android:textColor="#141414"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/postCode"
+                tools:text="07562 122669"
+                tools:visibility="visible" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/viewShipmentsButton"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:fontFamily="@font/nunitosans_regular"
+                android:text="@string/view_shipments"
+                android:textAllCaps="false"
+                android:textColor="#141414"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toStartOf="@+id/hiddenButton"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/telephoneNumber" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/hiddenButton"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:fontFamily="@font/nunitosans_regular"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/viewShipmentsButton"
+                app:layout_constraintTop_toBottomOf="@id/telephoneNumber" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/paymentMethodHeader"
+                style="@style/SectionHeader"
+                android:text="@string/payment_method"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/viewShipmentsButton" />
+
+            <View
+                android:id="@+id/paymentMethodHeaderLine"
+                style="@style/BlueHeaderLine"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/paymentMethodHeader" />
+
+            <ImageView
+                android:id="@+id/paymentImage"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginStart="8dp"
+                android:adjustViewBounds="true"
+                android:cropToPadding="true"
+                android:src="@drawable/paypal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/paymentMethodHeaderLine"
+                android:contentDescription="@string/image" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/paymentMethod"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/nunitosans_regular"
+                android:singleLine="true"
+                android:textColor="#141414"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="@+id/paymentImage"
+                app:layout_constraintStart_toEndOf="@id/paymentImage"
+                app:layout_constraintTop_toTopOf="@+id/paymentImage"
+                tools:text="PayPal Express"
+                tools:visibility="visible" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/paymentFromName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/nunitosans_semibold"
+                android:singleLine="true"
+                android:textColor="#141414"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/paymentImage"
+                tools:text="Johnny McJonathon"
+                tools:visibility="visible" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/paymentAddress1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/nunitosans_regular"
+                android:singleLine="true"
+                android:textColor="#141414"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/paymentFromName"
+                tools:text="Blakeney Way"
+                tools:visibility="visible" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/paymentAddress2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/nunitosans_regular"
+                android:singleLine="true"
+                android:textColor="#141414"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/paymentAddress1"
+                tools:text="Cannock"
+                tools:visibility="visible" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/paymentPostCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/nunitosans_regular"
+                android:singleLine="true"
+                android:textColor="#141414"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/paymentAddress2"
+                tools:text="WS11 8LD"
+                tools:visibility="visible" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/paymentTelephone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/nunitosans_regular"
+                android:paddingBottom="8dp"
+                android:singleLine="true"
+                android:textColor="@color/text_colour_1"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/paymentPostCode"
+                tools:text="07562 122669"
+                tools:visibility="visible" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/purchaseSummaryHeader"
+                style="@style/SectionHeader"
+                android:text="@string/purchase_summary"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/paymentTelephone" />
+
+            <View
+                android:id="@+id/purchaseSummaryHeaderLine"
+                style="@style/BlueHeaderLine"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/purchaseSummaryHeader" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxHeight="300dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/purchaseSummaryHeaderLine"
+                tools:itemCount="10"
+                tools:listitem="@layout/order_details_item" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/totalsHeader"
+                style="@style/SectionHeader"
+                android:text="@string/totals"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/recycler"
+                tools:text="Totals" />
+
+            <View
+                android:id="@+id/totalsHeaderLine"
+                style="@style/BlueHeaderLine"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/totalsHeader" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/subtotalText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/nunitosans_bold"
+                android:singleLine="true"
+                android:text="@string/subtotal"
+                android:textColor="@color/text_colour_1"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/totalsHeaderLine" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/shippingText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/nunitosans_bold"
+                android:singleLine="true"
+                android:text="@string/shipping"
+                android:textColor="@color/text_colour_1"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/subtotalText" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/taxText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/nunitosans_bold"
+                android:singleLine="true"
+                android:text="@string/tax"
+                android:textColor="@color/text_colour_1"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/shippingText" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/totalText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/nunitosans_bold"
+                android:paddingBottom="32dp"
+                android:singleLine="true"
+                android:text="@string/total"
+                android:textColor="@color/text_colour_1"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/taxText" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/subtotalValueText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/nunitosans_bold"
+                android:singleLine="true"
+                android:text="@string/zero_pounds"
+                android:textColor="@color/text_colour_1"
+                android:textSize="12sp"
+                app:layout_constraintBaseline_toBaselineOf="@id/subtotalText"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/taxValueText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/nunitosans_bold"
+                android:singleLine="true"
+                android:text="@string/zero_pounds"
+                android:textColor="@color/text_colour_1"
+                android:textSize="12sp"
+                app:layout_constraintBaseline_toBaselineOf="@id/taxText"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/shippingValueText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/nunitosans_bold"
+                android:singleLine="true"
+                android:text="@string/zero_pounds"
+                android:textColor="@color/text_colour_1"
+                android:textSize="12sp"
+                app:layout_constraintBaseline_toBaselineOf="@id/shippingText"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/totalValueText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/nunitosans_bold"
+                android:singleLine="true"
+                android:text="@string/zero_pounds"
+                android:textColor="@color/text_colour_1"
+                android:textSize="16sp"
+                app:layout_constraintBaseline_toBaselineOf="@id/totalText"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <ProgressBar
+        android:id="@+id/pbDownload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:indeterminate="true"
+        android:indeterminateDrawable="@drawable/fc_progress"
+        android:indeterminateDuration="1000"
+        android:translationZ="100dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="gone" />
+</androidx.constraintlayout.widget.ConstraintLayout>

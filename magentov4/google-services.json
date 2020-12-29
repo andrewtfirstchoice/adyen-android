@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "255231857708",
+    "firebase_url": "https://native-app-722be.firebaseio.com",
+    "project_id": "native-app-722be",
+    "storage_bucket": "native-app-722be.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:255231857708:android:627fb025fd6d171bb92d89",
+        "android_client_info": {
+          "package_name": "uk.co.firstchoice_cs.firstchoice_test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "255231857708-bhpqvh4gpu3307g4csjl8gnfj91dfr96.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0xQXOvVcaD8tWGXg8Jf-lBCzuF6FH_do"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "255231857708-bhpqvh4gpu3307g4csjl8gnfj91dfr96.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "255231857708-neud0drs3d3cf47h88t553v75u491t73.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.firstchoice.iOSV4"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

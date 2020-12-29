@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mainCoordinator"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false"
+    android:clipToPadding="false">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            style="@style/FCToolBar"
+            app:menu="@menu/action_menu_scanner"
+            app:title="Code Scanner"
+            app:navigationIcon="@drawable/ic_arrow_back_white_24dp">
+        </com.google.android.material.appbar.MaterialToolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/cameraWrapper"
+            android:layout_width="match_parent"
+            android:background="@color/black"
+            android:layout_weight="1"
+            android:layout_height="0dp">
+            <uk.co.firstchoice_cs.core.camera.CameraSourcePreview
+                android:id="@+id/preview"
+                android:layout_width="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_height="wrap_content">
+
+                <uk.co.firstchoice_cs.core.others.GraphicOverlay
+                    android:id="@+id/overlay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </uk.co.firstchoice_cs.core.camera.CameraSourcePreview>
+        </RelativeLayout>
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/permissionsLayout"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:contentDescription="@string/image"
+            android:visibility="gone"
+            android:layout_height="0dp">
+            <RelativeLayout
+                android:background="#ededed"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/cameraImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_centerInParent="true"
+                    android:adjustViewBounds="true"
+                    android:cropToPadding="true"
+                    android:src="@drawable/camera"
+                    app:tint="@color/fcLightGrey"
+                    android:contentDescription="@string/image" />
+                <TextView
+                    android:id="@+id/text"
+                    android:layout_below="@id/cameraImage"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/camera_access_is_required"
+                    android:fontFamily="@font/nunitosans_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_below="@id/text"
+                    android:text="@string/enable_camera_access"
+                    android:layout_centerHorizontal="true"
+                    android:fontFamily="@font/nunitosans_regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:background="@color/white"
+            android:layout_weight="2"
+            android:orientation="vertical"
+            android:layout_height="0dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp">
+                <TextView
+                    android:id="@+id/instructionText"
+                    android:text="@string/place_barcode"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/nunitosans_regular"
+                    android:layout_centerInParent="true"
+                    android:textAlignment="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:background="@color/fcLightGrey"
+                    android:layout_alignParentBottom="true"
+                    android:layout_height="1px"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:background="@color/fcLightGrey"
+                    android:layout_alignParentTop="true"
+                    android:layout_height="1px"/>
+            </RelativeLayout>
+
+            <uk.co.firstchoice_cs.core.scroll_aware.ScrollAwareRecycler
+                android:id="@+id/recycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:visibility="gone"
+                tools:itemCount="10"
+                tools:listitem="@layout/scan_sectioned_list_details" />
+            <RelativeLayout
+                android:id="@+id/noItemsLayout"
+                android:background="#ededed"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_centerInParent="true"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:src="@drawable/barcode_icon"
+                            app:tint="@color/fcLightGrey"
+                            android:contentDescription="@string/image"
+                            android:layout_height="wrap_content">
+                        </ImageView>
+                        <Space
+                            android:layout_width="30dp"
+                            android:layout_height="wrap_content"/>
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:src="@drawable/qr_code_icon"
+                            app:tint="@color/fcLightGrey"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@string/image">
+                        </ImageView>
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/you_have_no_scanned_codes"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/nunitosans_bold" />
+                    <TextView
+                        android:text="@string/scan_barcode"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/nunitosans_regular"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:animateLayoutChanges="false">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/endguideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.90" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startguideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="96dp" />
+
+    <include android:id="@+id/header" layout="@layout/item_header" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imgPdfThumbnail"
+        style="@style/ShapeAppearance.MaterialComponents.LargeComponent"
+        android:layout_width="80dp"
+        android:layout_height="120dp"
+        android:layout_margin="8dp"
+        android:adjustViewBounds="true"
+        android:cropToPadding="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/manual_place_holder"
+        app:layout_constraintEnd_toEndOf="@id/startguideline"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/downloadIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom|end"
+        android:adjustViewBounds="true"
+        android:background="@android:color/transparent"
+        android:cropToPadding="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/icon_catalogue_download"
+        android:translationZ="100dp"
+        app:layout_constraintBottom_toBottomOf="@id/imgPdfThumbnail"
+        app:layout_constraintEnd_toEndOf="@id/imgPdfThumbnail" />
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txtManufacturer"
+        style="@style/DocumentManufacturer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:fontFamily="@font/nunitosans_regular"
+        app:layout_constraintEnd_toStartOf="@id/endguideline"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@id/startguideline"
+        app:layout_constraintTop_toTopOf="@id/imgPdfThumbnail"
+        tools:text="@string/manufacturer" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txtModel"
+        style="@style/DocumentModel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:fontFamily="@font/nunitosans_regular"
+        android:maxLines="2"
+        android:singleLine="false"
+        app:layout_constraintEnd_toStartOf="@id/endguideline"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@id/startguideline"
+        app:layout_constraintTop_toBottomOf="@id/txtManufacturer"
+        tools:text="A very long model name to see what happens" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txtCategory"
+        style="@style/DocumentDescription"
+        android:ellipsize="end"
+        android:layout_width="0dp"
+        android:fontFamily="@font/nunitosans_regular"
+        app:layout_constraintEnd_toStartOf="@id/endguideline"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@id/startguideline"
+        app:layout_constraintTop_toBottomOf="@id/txtModel"
+        tools:text="Combination Oven" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txtLastViewed"
+        style="@style/DocumentLastViewed"
+        android:layout_width="0dp"
+        android:fontFamily="@font/nunitosans_regular"
+        android:textColor="@color/text_colour_1"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@id/endguideline"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@id/startguideline"
+        app:layout_constraintTop_toBottomOf="@id/txtCategory"
+        tools:text="just now" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txtProgress"
+        style="@style/DocumentProgressText"
+        android:layout_width="0dp"
+        android:fontFamily="@font/nunitosans_regular"
+        android:textColor="@color/text_colour_1"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@id/endguideline"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@id/startguideline"
+        app:layout_constraintTop_toBottomOf="@id/txtLastViewed"
+        tools:text="Downloading 13 KB of 1000KB" />
+
+    <ProgressBar
+        android:id="@+id/pbDownload"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="5dp"
+        android:layout_gravity="center_vertical"
+        android:progressTint="@color/fcRed"
+        android:visibility="gone"
+        app:layout_constraintEnd_toStartOf="@id/endguideline"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@id/startguideline"
+        app:layout_constraintTop_toBottomOf="@id/txtProgress"
+        tools:progress="50"
+        tools:visibility="visible" />
+    <Space
+        android:layout_width="match_parent"
+        app:layout_constraintEnd_toStartOf="@id/endguideline"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@id/startguideline"
+        app:layout_constraintTop_toBottomOf="@id/pbDownload"
+        android:layout_height="8dp"/>
+
+
+    <ImageView
+        android:id="@+id/nextArrow"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_gravity="center"
+        android:contentDescription="@string/image"
+        android:elevation="8dp"
+        android:src="@drawable/ic_check_black_36dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/endguideline"
+        app:layout_constraintTop_toBottomOf="@id/header"
+        app:tint="@color/fcBlue"
+        tools:visibility="visible" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

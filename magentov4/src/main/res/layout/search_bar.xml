@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/search_border"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="4dp"
+        tools:layout_height="50dp">
+
+        <uk.co.firstchoice_cs.core.widgets.KeyBoardEditText
+            android:id="@+id/etSearch"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:hint="@string/search_tip"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:maxLines="1"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/fcLightGrey" />
+
+        <ImageButton
+            android:id="@+id/btnSearch"
+            android:layout_width="45dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:paddingStart="2dp"
+            android:paddingEnd="2dp"
+            android:scaleType="center"
+            android:src="@drawable/ic_magnify_grey600_24dp"
+            android:tint="@color/fcBlue" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/fcLightGrey" />
+
+        <ImageButton
+            android:id="@+id/btnScanner"
+            android:layout_width="45dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:paddingStart="2dp"
+            android:paddingEnd="4dp"
+            android:scaleType="center"
+            android:src="@drawable/ic_barcode_scan_grey600_24dp"
+            android:tint="@color/fcBlue" />
+    </LinearLayout>
+</LinearLayout>

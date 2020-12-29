@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="NoConnectionView">
+        <attr name="messageText" format="string" />
+        <attr name="titleText" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="SlidingIndicator">
+        <attr name="indicatorColour" format="color" />
+        <attr name="trackColour" format="color" />
+        <attr name="animationSpeed" format="enum">
+            <enum name="Fast" value="250" />
+            <enum name="Medium" value="500" />
+            <enum name="Slow" value="1000" />/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="HorizontalNumberPicker">
+        <attr name="value" format="integer" />
+        <attr name="minValue" format="integer" />
+        <attr name="maxValue" format="integer" />
+        <attr name="plusButtonText" format="string" />
+        <attr name="minusButtonText" format="string" />
+        <attr name="updateInterval" format="integer" />
+        <attr name="stepSize" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="CounterFab">
+        <attr name="badgeTextColor" format="color" />
+        <attr name="badgeBackgroundColor" format="color" />
+        <attr name="badgePosition" format="enum">
+            <enum name="RightTop" value="0" />
+            <enum name="LeftBottom" value="1" />
+            <enum name="LeftTop" value="2" />
+            <enum name="RightBottom" value="3" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="SimpleItem">
+        <attr name="itemTitleText" format="string" />
+        <attr name="itemTrailingIcon" format="reference" />
+        <attr name="itemLeadingIcon" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="ManualsSearchBarView">
+        <attr name="hintText" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="FooterWidget">
+        <attr name="buttonTextFW" format="string" />
+        <attr name="titleTextFW" format="string" />
+        <attr name="subtitleTextFW" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="RootMenuWidget">
+        <attr name="titleTextRMW" format="string" />
+        <attr name="subtitleTextRMW" format="string" />
+        <attr name="itemLeadingIconRMW" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="DetailMenuWidget">
+        <attr name="titleTextDMW" format="string" />
+        <attr name="subtitleTextDMW" format="string" />
+        <attr name="itemTrailingIconDMW" format="reference" />
+        <attr name="itemLeadingIconDMW" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="PartResultCard">
+        <attr name="mainImage" format="reference" />
+        <attr name="manufacturerText" format="string" />
+        <attr name="partIDText" format="string" />
+        <attr name="partDescriptionText" format="string" />
+        <attr name="partNameText" format="string" />
+        <attr name="stockText" format="string" />
+        <attr name="priceExVAT" format="dimension" />
+        <attr name="priceIncVAT" format="dimension" />
+    </declare-styleable>
+
+</resources>

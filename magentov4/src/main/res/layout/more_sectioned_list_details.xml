@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFF"
+    android:gravity="center_vertical">
+
+    <RelativeLayout
+        android:id="@+id/map_wrapper"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="150dp" />
+
+    <RelativeLayout
+        android:id="@+id/standard_view"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/icon"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="16dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/icon_facebook" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="16dp"
+            android:layout_toEndOf="@id/icon"
+            android:background="#FFFF"
+            android:fontFamily="@font/nunitosans_regular"
+            android:gravity="center_vertical"
+            android:padding="5dp"
+            android:textColor="@color/text_colour_1"
+            android:textSize="14sp"
+            tools:text="Placeholder text" />
+
+
+    </RelativeLayout>
+    <com.google.android.material.chip.Chip
+        android:id="@+id/nav"
+        style="@style/NavigationChip"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        app:srcCompat="@drawable/ic_navigate_next" />
+</RelativeLayout>

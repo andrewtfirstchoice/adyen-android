@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_basket"
+    app:startDestination="@id/basket_fragment"
+    tools:ignore="UnusedNavigation">
+
+    <fragment
+        android:id="@+id/basket_fragment"
+        android:name="uk.co.firstchoice_cs.basket.BasketFragment"
+        tools:layout="@layout/fragment_basket"
+        android:label="Basket Fragment">
+        <action
+            android:id="@+id/action_basket_fragment_to_checkoutFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"
+            app:destination="@id/checkoutFragment" />
+        <action
+            android:id="@+id/action_basketFragment_to_orderConfirmationFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"
+            app:destination="@id/orderConfirmationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/checkoutFragment"
+        android:name="uk.co.firstchoice_cs.basket.CheckoutFragment"
+        android:label="fragment_checkout"
+        tools:layout="@layout/fragment_checkout" >
+        <action
+            android:id="@+id/action_checkoutFragment_to_deliveryMethodsFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"
+            app:destination="@id/deliveryMethodsFragment" />
+
+        <action
+            android:id="@+id/action_checkoutFragment_to_deliveryAddressesFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"
+            app:destination="@id/deliveryAddressesFragment" />
+        <action
+            android:id="@+id/action_checkoutFragment_to__add_billingAddressesFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"
+            app:destination="@id/addNewAddressFragment" />
+        <action
+            android:id="@+id/action_checkoutFragment_to__add_deliveryAddressesFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"
+            app:destination="@id/addNewAddressFragment" />
+
+        <action
+            android:id="@+id/create_account_action"
+            app:destination="@id/web_fragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/sign_in_action"
+            app:destination="@id/sign_in_fragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/sign_in_fragment"
+        android:name="uk.co.firstchoice_cs.core.shared.SignInFragment"
+        android:label="Sign In"
+        tools:layout="@layout/fragment_sign_in">
+    </fragment>
+    <fragment
+        android:id="@+id/web_fragment"
+        android:name="uk.co.firstchoice_cs.more.WebFragment"
+        android:label="Web Fragment"
+        tools:layout="@layout/fragment_web">
+    </fragment>
+    <fragment
+        android:id="@+id/addNewAddressFragment"
+        tools:layout="@layout/fragment_add_new_address"
+        android:name="uk.co.firstchoice_cs.basket.AddNewAddressFragment"
+        android:label="AddNewAddressFragment" />
+    <fragment
+        android:id="@+id/deliveryMethodsFragment"
+        tools:layout="@layout/fragment_delivery_methods"
+        android:name="uk.co.firstchoice_cs.basket.DeliveryMethodsFragment"
+        android:label="DeliveryMethodsFragment" >
+    </fragment>
+    <fragment
+        android:id="@+id/orderConfirmationFragment"
+        tools:layout="@layout/order_confirmation"
+        android:name="uk.co.firstchoice_cs.basket.OrderConfirmationFragment"
+        android:label="OrderConfirmationFragment" />
+    <fragment
+        android:id="@+id/deliveryAddressesFragment"
+        tools:layout="@layout/fragment_delivery_addresses"
+        android:name="uk.co.firstchoice_cs.basket.AddressesFragment"
+        android:label="DeliveryAddressesFragment" >
+        <action
+            android:id="@+id/action_deliveryAddressesFragment_to_addNewAddressFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"
+            app:destination="@id/addNewAddressFragment" />
+    </fragment>
+</navigation>

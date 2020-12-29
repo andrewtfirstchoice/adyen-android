@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    android:descendantFocusability="beforeDescendants"
+    android:focusable="true"
+    android:animateLayoutChanges="true"
+    android:focusableInTouchMode="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                style="@style/FCToolBar"
+                android:actionViewClass="android.widget.SearchView"
+                android:showAsAction="collapseActionView|ifRoom"
+                android:theme="@style/SearchBarTheme"
+                app:itemTextColor="@color/white"
+                app:navigationIcon="@drawable/ic_arrow_back_white_24dp"
+                app:subtitle="Manufacturer"
+                app:title="Part ID" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/minusButton"
+            style="@style/BlueIconButton"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="8dp"
+            app:icon="@drawable/ic_remove_black_24dp"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/addToBasketButton"
+            app:layout_constraintEnd_toStartOf="@+id/qtyText"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/addToBasketButton" />
+
+        <EditText
+            android:id="@+id/qtyText"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:layout_toStartOf="@id/plusButton"
+            android:layout_toEndOf="@id/minusButton"
+            android:fontFamily="@font/nunitosans_bold"
+            android:gravity="bottom|center"
+            android:inputType="number"
+            android:singleLine="true"
+            android:text="@string/zero"
+            android:autofillHints="false"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/addToBasketButton"
+            app:layout_constraintEnd_toStartOf="@+id/plusButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/minusButton"
+            app:layout_constraintTop_toTopOf="@id/addToBasketButton"
+            tools:text="1000" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/plusButton"
+            style="@style/BlueIconButton"
+            android:layout_alignParentEnd="true"
+            app:icon="@drawable/ic_add_black_24dp"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/addToBasketButton"
+            app:layout_constraintEnd_toStartOf="@+id/addToBasketButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/qtyText"
+            app:layout_constraintTop_toTopOf="@id/addToBasketButton" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/addToBasketButton"
+            style="@style/LargeRedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/add_to_basket"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/plusButton"
+            app:layout_constraintTop_toTopOf="@+id/guidelineBottom" />
+
+        <ProgressBar
+            android:id="@+id/pbDownload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:indeterminate="true"
+            android:indeterminateDrawable="@drawable/fc_progress"
+            android:indeterminateDuration="1000"
+            android:translationZ="100dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/app_bar"
+            tools:visibility="visible" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineBottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.85" />
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/guidelineBottom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/app_bar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guidelineTop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_begin="200dp" />
+
+                <ImageView
+                    android:id="@+id/singleImageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/placeholder"
+                    android:visibility="invisible"
+                    android:contentDescription="@string/image"
+                    app:layout_constraintBottom_toBottomOf="@id/guidelineTop"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/viewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toBottomOf="@id/guidelineTop"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/dots"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    app:layout_constraintTop_toTopOf="@id/threeSixtyView"
+                    app:layout_constraintBottom_toBottomOf="@id/threeSixtyView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:tabBackground="@drawable/dot_selector"
+                    app:tabGravity="center"
+                    app:tabIndicatorHeight="0dp"
+                    app:tabPaddingEnd="7dp"
+                    app:tabPaddingStart="7dp" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/threeSixtyView"
+                    style="@style/ThreeSixtyStyle"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:contentPadding="4dp"
+                    tools:visibility="visible"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="@id/singleImageView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:strokeColor="@color/text_colour_2"
+                    app:strokeWidth="1px">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/image"
+                        android:src="@drawable/threesixtyicon"
+                        app:tint="@color/text_colour_2"/>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <View
+                    android:id="@+id/div1"
+                    style="@style/Divider"
+                    app:layout_constraintBottom_toBottomOf="@id/singleImageView"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/nameText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:fontFamily="@font/nunitosans_bold"
+                    android:maxLines="1"
+                    android:textColor="@color/dark_purple"
+                    android:textSize="22sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/div1"
+                    tools:text="HEX SELF TAP SCREW (PK 10)" />
+
+                <View
+                    android:id="@+id/blueDivider"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_margin="8dp"
+                    android:background="@color/dark_purple"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/nameText" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/manufacturerText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/nunitosans_regular"
+                    android:textColor="@color/text_colour_2"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/blueDivider"
+                    tools:text="Hobart" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/partNumberText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/nunitosans_bold"
+                    android:textColor="@color/text_colour_2"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/manufacturerText"
+                    app:textAllCaps="true"
+                    tools:text="324091" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/skuText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/nunitosans_semibold"
+                    android:textColor="@color/text_colour_2"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/partNumberText"
+                    app:textAllCaps="true"
+                    tools:text="HOB324091" />
+
+                <ImageView
+                    android:id="@+id/checkedImageView"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="8dp"
+                    android:contentDescription="@string/tick_image"
+                    android:src="@drawable/in_stock_tick"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/skuText" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/stockText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="@font/nunitosans_bold"
+                    android:textColor="@color/green"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toEndOf="@id/checkedImageView"
+                    app:layout_constraintTop_toBottomOf="@id/skuText"
+                    tools:text="15 in stock" />
+
+                <uk.co.firstchoice_cs.core.widgets.PriceWidget
+                    android:id="@+id/priceWidget"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/stockText" />
+
+                <ProgressBar
+                    android:id="@+id/progress"
+                    style="@style/FCProgressSpinner"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginEnd="8dp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="@id/priceWidget"
+                    app:layout_constraintTop_toTopOf="@id/priceWidget"
+                    app:layout_constraintStart_toStartOf="@id/priceWidget"
+                    app:layout_constraintBottom_toBottomOf="@id/priceWidget"
+                    tools:visibility="visible" />
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/nextDayCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    app:cardCornerRadius="8dp"
+                    app:contentPadding="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/priceWidget"
+                    app:strokeColor="@color/text_colour_2"
+                    app:strokeWidth="1px">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp">
+
+                        <ImageView
+                            android:id="@+id/imageView2"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center_vertical"
+                            android:contentDescription="@string/clock"
+                            android:src="@drawable/clock"
+                            app:tint="@color/text_colour_1"
+                            app:layout_constraintEnd_toStartOf="@+id/title"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintHorizontal_chainStyle="packed"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="8dp"
+                            android:fontFamily="@font/nunitosans_semibold"
+                            android:singleLine="true"
+                            android:text="@string/next_day_delivery"
+                            android:textColor="@color/text_colour_1"
+                            android:textSize="16sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toEndOf="@+id/imageView2"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:visibility="visible" />
+
+                        <TextView
+                            android:id="@+id/subtitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginEnd="8dp"
+                            android:fontFamily="@font/nunitosans_regular"
+                            android:gravity="center_horizontal"
+                            android:text="@string/need_your_part_quickly"
+                            android:textColor="@color/text_colour_1"
+                            android:textSize="13sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/title"
+                            tools:visibility="visible" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/descriptionHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/nunitosans_bold"
+                    android:text="@string/description"
+                    android:textColor="@color/dark_purple"
+                    android:textSize="22sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/nextDayCard" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/descriptionText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/nunitosans_semibold"
+                    android:textAllCaps="false"
+                    android:textColor="@color/text_colour_2"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/descriptionHeader"
+                    app:textAllCaps="true"
+                    tools:text="Hex self tap screw (pk 10)" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/categoryHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="32dp"
+                    android:fontFamily="@font/nunitosans_bold"
+                    android:text="@string/category"
+                    android:textColor="@color/dark_purple"
+                    android:textSize="22sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/descriptionText" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/categoryText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/nunitosans_semibold"
+                    android:textAllCaps="false"
+                    android:textColor="@color/text_colour_2"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/categoryHeader"
+                    tools:text="Screws &amp; fasteners" />
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tabLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:backgroundTint="@color/white"
+                    android:elevation="0dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/categoryText"
+                    app:tabIndicator="@drawable/ic_tab"
+                    app:tabIndicatorColor="@color/fcBlue"
+                    app:tabIndicatorHeight="8dp"
+                    app:tabMode="fixed"
+                    app:tabTextAppearance="@style/MyCustomTabText"
+                    app:tabTextColor="@color/fcBlue">
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tech_info" />
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fits_models" />
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/documents" />
+
+                </com.google.android.material.tabs.TabLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tabLayout"
+                    tools:itemCount="5"
+                    tools:listitem="@layout/models_search_result_card" />
+
+                <include
+                    android:id="@+id/empty"
+                    layout="@layout/empty_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <uk.co.firstchoice_cs.store.bottom_sheets.DownloadBottomSheet
+        android:id="@+id/downloadBottomSheet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_anchorGravity="bottom"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+        tools:visibility="gone" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

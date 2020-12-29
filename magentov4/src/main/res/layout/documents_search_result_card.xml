@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="130dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardBackgroundColor="@color/white"
+    app:rippleColor="@color/fcBlue">
+
+    <LinearLayout
+        android:id="@+id/imgSource"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:orientation="horizontal"
+        android:scaleType="centerCrop"
+        android:baselineAligned="false">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="8dp"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/modelImage"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/document_image"
+                android:cropToPadding="true"
+                android:src="@drawable/placeholder"
+                app:srcCompat="@drawable/placeholder" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_weight="3"
+            android:backgroundTint="@color/white"
+            android:orientation="vertical">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/manufacturerModelText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunitosans_regular"
+                android:textSize="13sp"
+                android:textColor="@color/text_colour_2"
+                tools:text="Hobart" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/partIDModelText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunitosans_bold"
+                android:lines="1"
+                android:textColor="@color/text_colour_2"
+                android:textSize="13sp"
+                tools:text="897954" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/partDescriptionText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunitosans_regular"
+                android:lines="1"
+                android:textColor="@color/text_colour_2"
+                android:textSize="12sp"
+                tools:text="Descalers, Cleaning Chemicals" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:contentDescription="@string/document_icon"
+                    android:src="@drawable/documentpdf"
+                    app:srcCompat="@drawable/documentpdf"
+                    tools:srcCompat="@drawable/documentpdf" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/numDiagrams"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/nunitosans_regular"
+                    android:lines="1"
+                    tools:text="1 Document"
+                    android:textColor="@color/text_colour_2"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|end"
+        android:contentDescription="@string/next_arrow"
+        android:src="@drawable/ic_navigate_next"
+        app:tint="@color/text_colour_1"
+        android:visibility="visible"
+        tools:visibility="visible" />
+</com.google.android.material.card.MaterialCardView>

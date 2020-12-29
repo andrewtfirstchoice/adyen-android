@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/wrapper"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:animateLayoutChanges="false"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        android:visibility="gone"
+        tools:visibility="visible"
+        tools:showIn="@layout/row_manuals_search">
+
+        <TextView
+            android:id="@+id/headerText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:paddingStart="8dp"
+            android:textColor="@color/accentBlue"
+            android:textSize="16sp"
+            android:fontFamily="@font/nunitosans_bold"
+            tools:text="A" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_alignParentBottom="true"
+            android:background="@color/accentBlue"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:layout_height="4dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/manufacturerWrapper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/manufacturerText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:ellipsize="end"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:layout_marginStart="8dp"
+            android:singleLine="true"
+            android:textColor="@color/text_colour_1"
+            android:textSize="16sp"
+            android:fontFamily="@font/nunitosans_bold"
+            tools:text="@string/manufacturer" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/manufacturerArrow"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="8dp"
+            style="@style/NavigationChip" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/standardWrapper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="false"
+        android:visibility="gone"
+        android:orientation="horizontal">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/imgWrapper"
+            android:layout_width="wrap_content"
+            android:layout_height="120dp"
+            android:layout_margin="4dp"
+            android:elevation="8dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="4dp"
+            app:contentPadding="2dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgPdfThumbnail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:background="@color/white"
+                android:cropToPadding="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/manual_place_holder" />
+
+        </androidx.cardview.widget.CardView>
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp">
+
+
+            <TextView
+                android:id="@+id/txtManufacturer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:paddingEnd="5dp"
+                android:singleLine="true"
+                android:textColor="@color/text_colour_1"
+                android:textSize="16sp"
+                android:fontFamily="@font/nunitosans_bold"
+                tools:text="@string/manufacturer" />
+
+            <TextView
+                android:id="@+id/txtModel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="@color/fcDarkGrey"
+                android:fontFamily="@font/nunitosans_regular"
+                android:textSize="16sp"
+                tools:text="@string/modelstr" />
+
+            <TextView
+                android:id="@+id/txtCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:textColor="@color/fcDarkGrey"
+                android:fontFamily="@font/nunitosans_regular"
+                android:textSize="16sp"
+                tools:text="Document Name" />
+
+            <TextView
+                android:id="@+id/txtLastViewed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/fcDarkGrey"
+                android:fontFamily="@font/nunitosans_regular"
+                android:textSize="14sp"
+                tools:text="Date" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/favIcon"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    app:chipBackgroundColor="@android:color/transparent"
+                    android:layout_centerVertical="true"
+                    app:ensureMinTouchTargetSize="true"
+                    app:chipIconTint="@color/gold"
+                    app:chipMinTouchTargetSize="48dp"
+                    app:chipIcon="@drawable/icon_star_empty" />
+
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip"
+                    android:text="Add"
+                    app:chipBackgroundColor="@color/fcRed"
+                    app:chipIconSize="18dp"
+                    app:iconStartPadding="8dp"
+                    app:iconEndPadding="4dp"
+                    app:chipCornerRadius="4dp"
+                    android:layout_centerVertical="true"
+                    app:ensureMinTouchTargetSize="true"
+                    app:chipIconTint="@color/white"
+                    app:chipIcon="@drawable/collectionfilled"
+                    app:chipMinTouchTargetSize="48dp"
+                    style="@style/AddChip" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_toEndOf="@id/chip"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txtProgress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/fcDarkGrey"
+                        android:fontFamily="@font/nunitosans_regular"
+                        android:textSize="14sp"
+                        tools:text="Downloading 13 KB of 1000KB" />
+
+                    <ProgressBar
+                        android:id="@+id/pbDownload"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp"
+                        android:layout_gravity="center_vertical"
+                        android:progressTint="@color/fcRed"
+                        android:visibility="gone"
+                        tools:progress="50"
+                        tools:targetApi="lollipop"
+                        tools:visibility="visible" />
+                </LinearLayout>
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/nextArrow"
+            style="@style/NavigationChip" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_keyboard"
+        android:icon="@drawable/icon_keyboard"
+        android:title="@string/enter_manual_barcode"
+        app:showAsAction="ifRoom"/>
+
+
+    <item android:id="@+id/action_torch"
+        android:icon="@drawable/icon_bulb_off"
+        android:title="@string/flashlight"
+        app:showAsAction="ifRoom"/>
+
+</menu>

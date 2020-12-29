@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:animateLayoutChanges="true"
+    android:clickable="true"
+    android:elevation="8dp"
+    android:focusable="true"
+    app:cardBackgroundColor="@color/white"
+    app:rippleColor="@color/fcBlue">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:layout_margin="8dp">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/part_image"
+            android:cropToPadding="true"
+            android:src="@drawable/placeholder"
+            app:layout_constraintEnd_toStartOf="@id/endguideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/placeholder" />
+
+
+        <ImageView
+            android:id="@+id/threeSixtyIcon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/image"
+            android:cropToPadding="true"
+            app:tint="@color/blue_header_line"
+            android:src="@drawable/threesixtydisc"
+            app:layout_constraintEnd_toEndOf="@id/image"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/threesixtydisc" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/endguideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.25" />
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/manufacturerText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunitosans_regular"
+            android:singleLine="true"
+            android:textColor="@color/text_colour_1"
+            android:textSize="13sp"
+            app:layout_constraintStart_toEndOf="@id/endguideline"
+            app:layout_constraintTop_toTopOf="@id/image"
+            tools:text="Rational" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/partIDText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:fontFamily="@font/nunitosans_bold"
+            android:singleLine="true"
+            android:textColor="@color/text_colour_1"
+            android:textSize="15sp"
+            app:layout_constraintStart_toEndOf="@id/endguideline"
+            app:layout_constraintTop_toBottomOf="@id/manufacturerText"
+            tools:text="56.00.210" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/descriptionText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunitosans_regular"
+            android:lines="2"
+            android:textAllCaps="true"
+            android:textColor="@color/text_colour_1"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/endguideline"
+            app:layout_constraintTop_toBottomOf="@id/partIDText"
+            tools:text="DETERGENT CLEANER TABLETS 100PCS" />
+
+
+        <ImageView
+            android:id="@+id/tick"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toEndOf="@id/endguideline"
+            app:layout_constraintTop_toBottomOf="@id/descriptionText"
+            android:contentDescription="@string/image"
+            tools:srcCompat="@drawable/in_stock_tick" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/inStock"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:fontFamily="@font/nunitosans_bold"
+            android:gravity="bottom"
+            android:singleLine="true"
+            android:textAllCaps="true"
+            android:textColor="@color/green"
+            android:layout_marginStart="4dp"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@id/tick"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tick"
+            app:layout_constraintTop_toTopOf="@id/tick"
+            tools:text="25 in stock" />
+
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/discount"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            tools:visibility="visible"
+            android:visibility="invisible"
+            android:fontFamily="@font/nunitosans_regular"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:checkedIconVisible="false"
+            app:chipCornerRadius="2dp"
+            app:chipMinHeight="75dp"
+            app:chipStartPadding="0dp"
+            app:chipSurfaceColor="@color/fcRed"
+            app:layout_constraintTop_toBottomOf="@id/inStock"
+            app:layout_constraintStart_toStartOf="@id/priceWidget"
+            tools:text="-25%" />
+
+        <TextView
+            android:id="@+id/oldPrice"
+            android:layout_width="0dp"
+            android:layout_marginStart="8dp"
+            tools:visibility="visible"
+            android:visibility="invisible"
+            android:layout_height="wrap_content"
+            android:background="@drawable/strike_through"
+            android:fontFamily="@font/nunitosans_regular"
+            android:singleLine="true"
+            android:text="@string/ex_vat"
+            android:textColor="@color/text_colour_1"
+            android:textSize="12sp"
+            app:layout_constraintTop_toBottomOf="@id/inStock"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="£1215.00" />
+
+
+
+        <uk.co.firstchoice_cs.core.widgets.PriceWidget
+            android:id="@+id/priceWidget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:translationZ="1000dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintTop_toBottomOf="@id/discount"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/qtyFields"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toEndOf="@id/image"
+            app:layout_constraintTop_toBottomOf="@id/image"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/priceWidget">
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/minusButton"
+                android:layout_width="40dp"
+                style="@style/Widget.MaterialComponents.Button.Icon"
+                app:icon="@drawable/ic_remove_black_24dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:iconGravity="textStart"
+                android:insetLeft="0dp"
+                android:insetTop="0dp"
+                android:insetRight="0dp"
+                android:insetBottom="0dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:iconPadding="0dp"
+                android:layout_height="40dp"/>
+            <EditText
+                android:id="@+id/qtyText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/nunitosans_bold"
+                android:gravity="bottom|center"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/minusButton"
+                app:layout_constraintEnd_toStartOf="@id/plusButton"
+                android:singleLine="true"
+                android:inputType="number"
+                android:autofillHints="false"
+                android:hint="@string/qty"
+                android:text="@string/_1"
+                tools:text="9999"
+                android:textSize="13sp" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/plusButton"
+                android:layout_width="40dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                style="@style/Widget.MaterialComponents.Button.Icon"
+                app:icon="@drawable/ic_add_black_24dp"
+                app:layout_constraintStart_toEndOf="@id/qtyText"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:iconGravity="textStart"
+                android:insetLeft="0dp"
+                android:insetTop="0dp"
+                android:insetRight="0dp"
+                android:insetBottom="0dp"
+                app:iconPadding="0dp"
+                android:layout_height="40dp"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <ProgressBar
+            android:id="@+id/progress"
+            style="@style/FCProgressSpinner"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="8dp"
+            android:visibility="gone"
+            android:translationZ="1000dp"
+            app:layout_constraintEnd_toEndOf="@id/priceWidget"
+            app:layout_constraintTop_toTopOf="@id/priceWidget"
+            app:layout_constraintStart_toStartOf="@id/priceWidget"
+            app:layout_constraintBottom_toBottomOf="@id/priceWidget"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="false"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        android:visibility="gone"
+        tools:visibility="visible"
+        tools:showIn="@layout/row_manuals_search">
+
+        <TextView
+            android:id="@+id/headerText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:paddingStart="8dp"
+            android:textColor="@color/accentBlue"
+            android:textSize="16sp"
+            android:fontFamily="@font/nunitosans_bold"
+            tools:text="A" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_alignParentBottom="true"
+            android:background="@color/accentBlue"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:layout_height="4dp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/itemView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="false"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:animateLayoutChanges="false">
+
+            <com.google.android.material.chip.Chip
+                    android:id="@+id/button"
+                    style="@style/NavigationChip"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="10dp"
+                    android:layout_centerVertical="true"
+                    android:adjustViewBounds="true"
+                    app:srcCompat="@drawable/ic_navigate_next" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_centerVertical="true"
+                android:textSize="14sp"
+                android:fontFamily="@font/nunitosans_bold"
+                tools:text="Van stock manuals" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp">
+            <TextView
+                android:id="@+id/numitems"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="8dp"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                tools:text="12 items" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <androidx.core.widget.NestedScrollView
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/app_bar"
+                app:statusBarForeground="@color/fcBlue"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.appbar.MaterialToolbar
+                    android:id="@+id/toolbar"
+                    style="@style/FCToolBar"
+                    app:layout_scrollFlags="scroll|enterAlways|snap"
+                    app:navigationIcon="@drawable/ic_close_white_24dp"
+                    android:theme="@style/SearchBarTheme"
+                    app:title="Confirmation" />
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/orderIcon"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                style="@style/roundedImageView"
+                app:layout_constraintTop_toBottomOf="@id/app_bar"
+                android:scaleType="centerCrop"
+                android:src="@drawable/avatar"
+                android:layout_marginTop="32dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"/>
+
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/orderIcon2"
+                app:layout_constraintStart_toStartOf="@id/orderIcon"
+                app:layout_constraintEnd_toEndOf="@id/orderIcon"
+                app:layout_constraintTop_toTopOf="@id/orderIcon"
+                app:layout_constraintBottom_toBottomOf="@id/orderIcon"
+                style="@style/roundedImageView"
+                app:layout_constraintTop_toBottomOf="@id/app_bar"
+                android:scaleType="centerCrop"
+                android:tint="@color/white"
+                android:src="@drawable/orderlisticon"
+                android:layout_width="80dp"
+                android:layout_height="80dp"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/orderIconTick"
+                app:layout_constraintStart_toStartOf="@id/orderIcon"
+                app:layout_constraintEnd_toEndOf="@id/orderIcon"
+                app:layout_constraintTop_toTopOf="@id/orderIcon"
+                app:layout_constraintBottom_toBottomOf="@id/orderIcon"
+                style="@style/roundedImageView"
+                app:layout_constraintTop_toBottomOf="@id/app_bar"
+                android:scaleType="centerCrop"
+                android:tint="@color/white"
+                android:layout_marginStart="60dp"
+
+                android:layout_marginTop="60dp"
+                android:src="@drawable/in_stock_tick"
+                android:layout_width="40dp"
+                android:layout_height="40dp"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/orderConfirmedText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/orderIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunitosans_extrabold"
+                android:singleLine="true"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/order_confirmed"
+                android:textColor="@color/text_colour_2"
+                android:textSize="20sp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/orderThankText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/orderConfirmedText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunitosans_semibold"
+                android:singleLine="true"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/thank_you_for_shopping_with_us"
+                android:textColor="@color/text_colour_1"
+                android:textSize="17sp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/confText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/orderThankText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunitosans_regular"
+                android:singleLine="true"
+                android:paddingTop="16dp"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/email_sent"
+                android:textColor="@color/text_colour_1"
+                android:textSize="13sp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/emailAddressText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/confText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunitosans_regular"
+                android:singleLine="true"
+                android:layout_gravity="center_horizontal"
+                tools:text="Johnny@catering.com"
+                android:textColor="@color/text_colour_1"
+                android:textSize="13sp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/orderNumberText"
+                style="@style/SectionHeader"
+                tools:text="Order 0000000863"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/emailAddressText" />
+
+            <View
+                android:id="@+id/orderNumberLine"
+                style="@style/BlueHeaderLine"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/orderNumberText" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:maxHeight="500dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/orderNumberLine"
+                tools:itemCount="3"
+                tools:listitem="@layout/order_confirmation_list_item" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/totalsHeaderText"
+                style="@style/SectionHeader"
+                android:text="@string/totals"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/recycler" />
+
+            <View
+                android:id="@+id/totalsHeader"
+                style="@style/BlueHeaderLine"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/totalsHeaderText" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/subTotalTitleText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunitosans_extrabold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/totalsHeader"
+                android:layout_margin="8dp"
+                android:singleLine="true"
+                android:text="@string/subtotal"
+                android:textColor="@color/dark_purple"
+                android:textSize="12sp" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/subTotalValueText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunitosans_extrabold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/totalsHeader"
+                android:singleLine="true"
+                android:layout_margin="8dp"
+                android:gravity="end"
+                tools:text="£161.90"
+                android:textColor="@color/dark_purple"
+                android:textSize="12sp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/shippingTitleText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunitosans_extrabold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/subTotalTitleText"
+                android:layout_margin="8dp"
+                android:singleLine="true"
+                android:text="@string/shipping"
+                android:textColor="@color/dark_purple"
+                android:textSize="12sp" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/shippingValueText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunitosans_extrabold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/subTotalTitleText"
+                android:singleLine="true"
+                android:layout_margin="8dp"
+                android:gravity="end"
+                tools:text="£161.90"
+                android:textColor="@color/dark_purple"
+                android:textSize="12sp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/vatTitleText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunitosans_extrabold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/shippingTitleText"
+                android:layout_margin="8dp"
+                android:singleLine="true"
+                android:text="@string/vat"
+                android:textColor="@color/dark_purple"
+                android:textSize="12sp" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/vatValueText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunitosans_extrabold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/shippingTitleText"
+                android:singleLine="true"
+                android:layout_margin="8dp"
+                android:gravity="end"
+                tools:text="£34.68"
+                android:textColor="@color/dark_purple"
+                android:textSize="12sp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/totalTitleText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunitosans_extrabold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/vatTitleText"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:singleLine="true"
+                android:text="@string/total"
+                android:textColor="@color/dark_purple"
+                android:textSize="12sp" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/totalValueText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunitosans_extrabold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/vatTitleText"
+                android:singleLine="true"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="16dp"
+                android:gravity="end"
+                tools:text="208.08"
+                android:textColor="@color/dark_purple"
+                android:textSize="12sp" />
+            <androidx.legacy.widget.Space
+                app:layout_constraintTop_toBottomOf="@id/totalValueText"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

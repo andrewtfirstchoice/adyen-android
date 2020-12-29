@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_manuals"
+    app:startDestination="@+id/manuals_fragment">
+
+    <fragment
+        android:id="@+id/manuals_fragment"
+        android:name="uk.co.firstchoice_cs.manuals.ManualsFragmentManuals"
+        android:label="@string/Manuals"
+        tools:layout="@layout/manuals_fragment">
+
+        <action
+            android:id="@+id/manuals_fragment_to_add_edit_collection_fragment"
+            app:destination="@id/add_edit_collections_fragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"  />
+
+
+        <action
+            android:id="@+id/manuals_fragment_to_items_in_collections_fragment"
+            app:destination="@id/item_in_collections_fragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"  />
+
+
+        <action
+            android:id="@+id/manuals_fragment_to_manual_details"
+            app:destination="@id/manuals_details_fragment_manuals"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"  />
+
+
+        <action
+            android:id="@+id/manuals_fragment_to_collection_fragment"
+            app:destination="@id/collection_fragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_manuals_fragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/item_in_collections_fragment"
+        android:name="uk.co.firstchoice_cs.manuals.ItemInCollectionsFragmentManuals"
+        android:label="Create New Collection"
+        tools:layout="@layout/item_in_collection_manuals">
+
+        <action
+            android:id="@+id/item_in_collections_fragment_to_add_edit_collections_fragment"
+            app:destination="@id/add_edit_collections_fragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"  />
+
+        <action
+            android:id="@+id/items_in_collections_fragment_to_collection_fragment"
+            app:destination="@id/collection_fragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"  />
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/collection_fragment"
+        android:name="uk.co.firstchoice_cs.manuals.CollectionFragmentManuals"
+        android:label="Create New Collection"
+        tools:layout="@layout/collection_fragment">
+
+        <action
+            android:id="@+id/collection_fragment_to_items_in_collection_fragment"
+            app:destination="@id/item_in_collections_fragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"  />
+
+        <action
+            android:id="@+id/collections_fragment_to_add_edit_collections_fragment"
+            app:destination="@id/add_edit_collections_fragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"  />
+
+        <action
+            android:id="@+id/collection_fragment_to_manual_details_fragment"
+            app:destination="@id/manuals_details_fragment_manuals"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"  />
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/manuals_details_fragment_manuals"
+        android:name="uk.co.firstchoice_cs.manuals.ManualDetailsFragmentManuals"
+        android:label="Manuals Details"
+        tools:layout="@layout/manual_details_fragment">
+        <action
+            android:id="@+id/manual_details_fragment_to_add_to_collection_fragment"
+            app:destination="@id/item_in_collections_fragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_manuals_details_fragment_manuals_to_addPartFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"
+            app:destination="@id/addPartFragmentManuals" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/addPartFragmentManuals"
+        android:name="uk.co.firstchoice_cs.manuals.AddPartFragmentManuals"
+        android:label="Add Part Fragment"
+        tools:layout="@layout/fragment_add_part">
+        <action
+            android:id="@+id/action_addPartFragment_to_shopModelsResultFragment_manuals"
+            app:destination="@id/shopModelsResultFragmentManuals" />
+        <action
+            android:id="@+id/action_addPartFragment_to_manuals_details_fragment_manuals"
+            app:destination="@id/manuals_details_fragment_manuals" />
+        <action
+            android:id="@+id/action_addPartFragment_to_threeSixtyFragment_manuals"
+            app:destination="@id/threeSixtyFragmentManuals" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/add_edit_collections_fragment"
+        android:name="uk.co.firstchoice_cs.manuals.AddEditCollectionsFragmentManuals"
+        android:label="Add Edit Collections Fragment"
+        tools:layout="@layout/add_edit_collections_fragment">
+    </fragment>
+    <fragment
+        android:id="@+id/catalogueFragment"
+        android:name="uk.co.firstchoice_cs.manuals.CatalogueFragmentManuals"
+        tools:layout="@layout/catalogue_fragment"
+        android:label="CatalogueFragment" >
+        <action
+            android:id="@+id/action_catalogueFragment_to_manuals_details_fragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"
+            app:destination="@id/manuals_details_fragment_manuals" />
+    </fragment>
+    <fragment
+        android:id="@+id/manualsSearchFragment"
+        android:name="uk.co.firstchoice_cs.manuals.ManualsSearchResultsFragmentManuals"
+        tools:layout="@layout/manuals_search_result_fragment"
+        android:label="Manuals Search Fragment" >
+        <action
+            android:id="@+id/action_manualsSearchFragment_to_manuals_details_fragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"
+            app:destination="@id/manuals_details_fragment_manuals" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="uk.co.firstchoice_cs.manuals.SearchFragmentManuals"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_searchManufacturer"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"
+            app:destination="@id/searchManufacturer" />
+        <action
+            android:id="@+id/action_searchFragment_to_searchEquipmentTypes"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"
+            app:destination="@id/searchEquipmentTypes" />
+        <action
+            android:id="@+id/action_searchFragment_to_catalogueFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"
+            app:destination="@id/catalogueFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_manualsSearchFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"
+            app:destination="@id/manualsSearchFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_searchModelFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"
+            app:destination="@id/searchModels" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchManufacturer"
+        android:name="uk.co.firstchoice_cs.manuals.SearchManufacturersManuals"
+        android:label="fragment_search_manufacturers"
+        tools:layout="@layout/search_manufacturer" />
+    <fragment
+        android:id="@+id/searchEquipmentTypes"
+        android:name="uk.co.firstchoice_cs.manuals.SearchEquipmentTypesManuals"
+        android:label="fragment_search_equipment_types"
+        tools:layout="@layout/search_equipment" />
+    <fragment
+        android:id="@+id/searchModels"
+        android:name="uk.co.firstchoice_cs.manuals.SearchModelsManuals"
+        android:label="fragment_search_models"
+        tools:layout="@layout/search_models" />
+
+
+
+    <fragment
+        android:id="@+id/shopModelsResultFragmentManuals"
+        tools:layout="@layout/shop_models_result_fragment"
+        android:name="uk.co.firstchoice_cs.store.fragments.ShopModelsResultFragment"
+        android:label="ShopModelsResultFragment" >
+        <action
+            android:id="@+id/action_shopModelsResultFragment_to_addPartFragment"
+            app:destination="@id/addPartFragmentManuals" />
+        <action
+            android:id="@+id/action_shopModelsResultFragment_to_manuals_details_fragment_store"
+            app:destination="@id/manuals_details_fragment_manuals" />
+    </fragment>
+    <fragment
+        android:id="@+id/threeSixtyFragmentManuals"
+        android:name="uk.co.firstchoice_cs.store.fragments.ThreeSixtyFragment"
+        tools:layout="@layout/fragment_three_sixty"
+        android:label="ThreeSixtyFragment" />
+</navigation>

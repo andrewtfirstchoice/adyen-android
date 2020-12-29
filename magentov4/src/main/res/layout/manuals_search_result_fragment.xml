@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:animateLayoutChanges="true"
+    android:fitsSystemWindows="true">
+
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed"
+                app:navigationIcon="@drawable/ic_arrow_back_white_24dp" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <RelativeLayout
+            android:id="@+id/chatWrapper"
+            android:layout_below="@id/app_bar"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            android:layout_height="60dp"
+            android:background="@color/white">
+
+            <ImageView
+                android:id="@+id/chatIcon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerVertical="true"
+                android:layout_margin="8dp"
+                android:src="@drawable/icon_chat"
+                android:contentDescription="@string/image"
+                app:tint="@color/fcBlue" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@+id/button"
+                android:layout_toEndOf="@id/chatIcon"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cannot_find_your_diagram"
+                    android:textColor="@color/fcBlue"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/nunitosans_bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chat_with_an_expert_now"
+                    android:fontFamily="@font/nunitosans_regular"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/button"
+                style="@style/NavigationChip"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="8dp"
+                android:adjustViewBounds="true" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_below="@+id/chatWrapper"
+            android:layout_height="match_parent">
+            <uk.co.firstchoice_cs.core.scroll_aware.ScrollAwareRecycler
+                android:id="@+id/recycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="visible"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="10"
+                tools:visibility="gone"
+                tools:listitem="@layout/row_manuals_search" />
+
+         <!--   <uk.co.firstchoice_cs.core.shared.EmptyScreen
+                android:id="@+id/empty"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="50dp"
+                android:layout_centerInParent="true"
+                app:emptyDescription="Enter a search term above.  Search by manufacturer, model, name"
+                app:emptyImageRe="@drawable/icon_search"
+                app:emptyText="Search for a manual"
+                android:visibility="gone"
+                tools:visibility="visible" />-->
+            <include android:id="@+id/emptyView"
+                android:layout_height="match_parent"
+                layout="@layout/empty_layout"
+                android:layout_width="match_parent" />
+            <ProgressBar
+                android:id="@+id/progress"
+                style="@style/FCProgressSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:indeterminate="true" />
+        </RelativeLayout>
+</RelativeLayout>

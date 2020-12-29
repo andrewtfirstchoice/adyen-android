@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:background="@android:color/white">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/endguideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.85" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/selectText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/endguideline"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:ellipsize="marquee"
+        android:fontFamily="@font/nunitosans_regular"
+        android:singleLine="true"
+        tools:visibility="visible"
+        android:text="Select a Delivery Address"
+        android:textSize="14sp" />
+
+
+    <ImageView
+        android:id="@+id/leadingBilling"
+        app:tint="@color/text_colour_1"
+        android:paddingTop="8dp"
+        android:layout_width="20dp"
+        android:layout_height="28dp"
+        android:visibility="visible"
+        app:layout_goneMarginStart="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:contentDescription="@string/image"
+        android:src="@drawable/billing_icon"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/titleBilling"
+        android:layout_width="0dp"
+        android:paddingTop="8dp"
+        app:layout_constraintStart_toEndOf="@id/leadingBilling"
+        app:layout_constraintEnd_toEndOf="@id/endguideline"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        app:layout_goneMarginStart="0dp"
+        android:fontFamily="@font/nunitosans_bold"
+        android:singleLine="true"
+        tools:text="Johney McJonathon"
+        app:tint="@color/text_colour_1"
+        android:textSize="13sp"
+        tools:visibility="visible" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/address1Billing"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/leadingBilling"
+        app:layout_constraintEnd_toEndOf="@id/endguideline"
+        app:layout_constraintTop_toBottomOf="@id/titleBilling"
+        android:fontFamily="@font/nunitosans_regular"
+        android:singleLine="true"
+        tools:text="24 Letsbe Avenue"
+        android:textSize="12sp" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/address2Billing"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/leadingBilling"
+        app:layout_constraintEnd_toEndOf="@id/endguideline"
+        app:layout_constraintTop_toBottomOf="@id/address1Billing"
+        android:ellipsize="marquee"
+        android:fontFamily="@font/nunitosans_regular"
+        android:singleLine="true"
+        tools:text="123 Ratupadrainpipe"
+        android:textSize="12sp" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/postcodeBilling"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/leadingBilling"
+        app:layout_constraintEnd_toEndOf="@id/endguideline"
+        app:layout_constraintTop_toBottomOf="@id/address2Billing"
+        android:fontFamily="@font/nunitosans_regular"
+        android:singleLine="true"
+        tools:text="WS4 4PT"
+        android:textSize="12sp" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/contactNumberBilling"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/leadingBilling"
+        app:layout_constraintEnd_toEndOf="@id/endguideline"
+        app:layout_constraintTop_toBottomOf="@id/postcodeBilling"
+        android:fontFamily="@font/nunitosans_regular"
+        android:singleLine="true"
+        tools:text="01922 111111"
+        android:paddingBottom="8dp"
+        android:textSize="12sp" />
+
+
+    <ImageView
+        android:id="@+id/trailingBilling"
+        style="@style/trailing_check"
+        android:src="@drawable/ic_navigate_next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/image"
+        tools:visibility="visible" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

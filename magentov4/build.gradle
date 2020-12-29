@@ -1,0 +1,182 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.firebase.crashlytics'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'com.google.gms.google-services'
+
+android {
+    compileSdkVersion compile_sdk_version
+    buildToolsVersion '30.0.2'
+
+    buildFeatures {
+        viewBinding = true
+        dataBinding = true
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    defaultConfig {
+        applicationId "uk.co.firstchoice_cs.firstchoice_test"
+        minSdkVersion min_sdk_version
+        targetSdkVersion target_sdk_version
+        versionCode 86
+        versionName "4.0.0"
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        googleServices { disableVersionCheck = true }
+        buildConfigField 'boolean', 'ENABLE_CRASHLYTICS', 'true'
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation": "$projectDir/schemas".toString(),"room.incremental":"true"]
+            }
+        }
+    }
+
+    dexOptions {
+        jumboMode = true
+    }
+
+
+    signingConfigs {
+        release {
+            storeFile file("../firstchoice.keystore")
+            storePassword "fc577778"
+            keyAlias "firstchoicemobile"
+            keyPassword "fir5tch0ice"
+        }
+    }
+
+    buildTypes {
+        release {
+            initWith debug
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+            debuggable false
+        }
+        debug {
+            buildConfigField "String", "MERCHANT_ACCOUNT", "\"Test\""
+            buildConfigField "String", "MERCHANT_SERVER_URL", "\"https://checkout-test.adyen.com/v66/\""
+            buildConfigField "String", "API_KEY_HEADER_NAME", "\"x-API-key\""
+            buildConfigField "String", "CHECKOUT_API_KEY", "\"AQE0hmfuXNWTK0Qc+iSWm3Yrs8eTR4JOCLBLTGBEz3asrXZKjMJlrbYOOGqzhFhhsXbztkA5ihDBXVsNvuR83LVYjEgiTGAH-A8WeUsPrT2mOW4V69bVBH0Aos758Fhlf3+yGfU6lLqE=->HQr4CRsVMx>%:LM\""
+            buildConfigField "String", "PUBLIC_KEY", "\"10001|D15FCB4D845F3ED53E7310287A2EBBCA87C0CF719938B622B61F75C0444B76FF97FBF094C9F1790B9894F69454277628241BB32344FD01E8B9DCA69C6A30B9F0A0B50632EC54C892108DA37FD9BD7B2DEE622E559BFF91C555629628045833DF4C71E6B1772D2AE40C64B79BB282E4E04ECD8256F89C4CE42298136C2E3F525BCD7167ED4FA43D1B0173B6A812CF232D1E412868195F46C56D2A2F48943C6026C13152D86A7908C3E41D744E3C1FEF6D367F61B0B0E8703BBF945A2C7FA52D5BF986B1C256C1BF791D1BCFFA0597E602CD4E2D9D0B430452686141A61BE94F76BEDE2191052CE57B0E9F2F315EA09999B5A539EC256666CFC6B21767069408E5\""
+            buildConfigField "String", "CLIENT_KEY", "\"test_GQEEX4W74FCQ3HUP6RJV54L5HIZWLTIA\""
+            buildConfigField "String", "SHOPPER_REFERENCE", "\"TEST_SHOPPER\""
+
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            debuggable true
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+}
+
+
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'androidx.cardview:cardview:1.0.0'
+    testImplementation 'junit:junit:4.13.1'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    // Checkout
+    implementation project(':drop-in')
+
+    implementation 'androidx.core:core-ktx:1.3.2'
+    implementation 'androidx.appcompat:appcompat:1.3.0-alpha02'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation "androidx.exifinterface:exifinterface:1.3.2"
+    implementation "androidx.vectordrawable:vectordrawable-animated:1.1.0"
+    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation 'androidx.recyclerview:recyclerview:1.2.0-beta01'
+    implementation "androidx.navigation:navigation-runtime-ktx:2.3.2"
+    implementation "androidx.navigation:navigation-fragment-ktx:2.3.2"
+    implementation "androidx.navigation:navigation-ui-ktx:2.3.2"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
+    implementation 'androidx.activity:activity-ktx:1.2.0-rc01'
+    implementation 'androidx.fragment:fragment-ktx:1.3.0-rc01'
+    implementation "androidx.room:room-runtime:$roomVersion"
+    implementation "androidx.room:room-ktx:$roomVersion"
+    kapt "androidx.room:room-compiler:2.2.6"
+
+    implementation 'com.google.firebase:firebase-analytics-ktx:18.0.0'
+    implementation 'com.google.firebase:firebase-crashlytics-ktx:17.3.0'
+    implementation 'com.google.firebase:firebase-functions-ktx:19.2.0'
+    implementation 'com.google.firebase:firebase-database-ktx:19.6.0'
+    implementation 'com.google.firebase:firebase-core:18.0.0'
+    implementation 'com.google.firebase:firebase-messaging-ktx:21.0.1'
+    implementation 'com.google.firebase:firebase-auth-ktx:20.0.1'
+    implementation 'com.google.firebase:firebase-storage-ktx:19.2.1'
+    implementation 'com.google.android.material:material:1.3.0-beta01'
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation 'com.google.android.gms:play-services-location:17.1.0'
+    implementation 'com.google.android.gms:play-services-places:17.0.0'
+    implementation 'com.google.android.libraries.places:places:2.4.0'
+    implementation 'com.google.android.gms:play-services-analytics:17.0.0'
+    implementation 'com.google.firebase:firebase-ml-vision:24.0.3'
+
+    implementation 'com.myhexaville:smart-image-picker:1.0.4' //parts id
+    implementation "androidx.preference:preference-ktx:1.1.1"
+    implementation 'com.mutualmobile:androidkeystore:0.0.2' //encryption
+    implementation 'com.tbuonomo.andrui:viewpagerdotsindicator:3.0.3'
+    implementation 'com.novoda:merlin:1.2.1'
+    implementation 'com.github.MSF-Jarvis:AppRate:1.3' //app ratings
+    implementation 'com.github.barteksc:android-pdf-viewer:3.2.0-beta.1' // pdf viewer
+    implementation 'com.mindorks.android:prdownloader:0.5.0'
+    implementation "com.sergivonavi:materialbanner:1.2.0"
+    implementation 'com.helpcrunch:chat-sdk:3.0.7-rc.01'
+    implementation 'org.slf4j:slf4j-api:2.0.0-alpha1' //Zoom layout
+    implementation 'io.github.luizgrp.sectionedrecyclerviewadapter:sectionedrecyclerviewadapter:3.1.0'
+    implementation "de.adorsys.android:securestoragelibrary:1.2.4"
+
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.10.0-RC1'
+    implementation 'com.squareup.okhttp3:okhttp:4.10.0-RC1'
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-scalars:$retrofitVersion"
+    implementation "com.squareup.moshi:moshi:$moshiVersion"
+    implementation "com.squareup.moshi:moshi-kotlin:$moshiVersion"
+
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.1"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.1"
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.4.1'
+    implementation "org.jetbrains.kotlin:kotlin-reflect:1.4.21"
+
+    implementation "org.koin:koin-android:$koinVersion"
+    implementation "org.koin:koin-androidx-scope:$koinVersion"
+    implementation "org.koin:koin-androidx-viewmodel:$koinVersion"
+
+    implementation 'io.coil-kt:coil:1.0.0'
+    implementation 'com.github.rosariopfernandes:firecoil:0.3.0'
+
+    apply plugin: 'com.google.gms.google-services'
+}
+
+repositories {
+    mavenCentral()
+}

@@ -28,10 +28,26 @@ buildscript {
         classpath "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:$detekt_gradle_plugin_version"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "gradle.plugin.com.github.spotbugs.snom:spotbugs-gradle-plugin:$spotbugs_gradle_plugin_version"
+        classpath 'com.google.gms:google-services:4.3.4'
+        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.4.1'
     }
 }
 
 allprojects {
+    project.ext {
+        minSdkVersion = 21
+        targetSdkVersion = 29
+        compileSdkVersion = 29
+        supportVersion = "28.0.0"
+        archLifecycleVersion = '1.1.1'
+        googlePlayServicesVersion = "17.0.0"
+        koinVersion = "2.1.6"
+        moshiVersion = "1.11.0"
+        glideVersion = "4.10.0"
+        retrofitVersion = "2.9.0"
+        roomVersion = "2.2.5"
+        navVersion = "2.3.0"
+    }
     // SDK
     ext.min_sdk_version = 21
     ext.target_sdk_version = 30
@@ -95,6 +111,10 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven { url 'https://jitpack.io' }
+        maven {
+            url 'https://maven.google.com/'
+        }
     }
 }
 

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:animateLayoutChanges="true"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                style="@style/FCToolBar"
+                app:menu="@menu/action_menu_home"
+                app:navigationIcon="@drawable/ic_navigate_before"
+                app:title="Send Us Feedback" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/full_name_required">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/partsIDNameEdit"
+                style="@style/PartsIDText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:fontFamily="@font/nunitosans_regular"
+                android:inputType="textPersonName"
+                android:singleLine="true"
+                android:textColor="@color/text_colour_1"
+                android:textSize="13sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/company_required">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/partsIDCompanyEdit"
+                style="@style/PartsIDText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:fontFamily="@font/nunitosans_regular"
+                android:inputType="textPersonName"
+                android:singleLine="true"
+                android:textColor="@color/text_colour_1"
+                android:textSize="13sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/email_address_required">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/partsIDEmailEdit"
+                style="@style/PartsIDText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:fontFamily="@font/nunitosans_regular"
+                android:inputType="textPersonName"
+                android:singleLine="true"
+                android:textColor="@color/text_colour_1"
+                android:textSize="13sp" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Give your feedback below">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/feedbackEt"
+                style="@style/PartsIDText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:fontFamily="@font/nunitosans_regular"
+                android:imeOptions="flagNoFullscreen"
+                android:inputType="text"
+                android:singleLine="true"
+                android:textColor="@color/text_colour_1"
+                android:textSize="13sp" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button"
+            style="@style/SmallRedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="8dp"
+            android:text="@string/submit" />
+    </LinearLayout>
+
+</ScrollView>

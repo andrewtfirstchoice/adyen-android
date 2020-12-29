@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_store"
+    app:startDestination="@id/shopRootFragment">
+
+    <fragment
+        android:id="@+id/shopRootFragment"
+        android:name="uk.co.firstchoice_cs.store.fragments.ShopRootFragment"
+        tools:layout="@layout/shop_root_fragment"
+        android:label="StoreFragment">
+        <action
+            android:id="@+id/action_store_fragment_to_storeDetailFragment"
+            app:destination="@id/shopSearchFragment" />
+        <action
+            android:id="@+id/action_store_fragment_to_manufacturerFragment"
+            app:destination="@id/manufacturerSearchFragment" />
+        <action
+            android:id="@+id/action_store_fragment_to_partCategorySearchFragment"
+            app:destination="@id/partClassesSearchFragment" />
+        <action
+            android:id="@+id/action_store_fragment_to_equipmentSearchFragment"
+            app:destination="@id/equipmentSearchFragment" />
+        <action
+            android:id="@+id/action_shopRootFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_shopRootFragment_to_addPartFragment"
+            app:destination="@id/addPartFragmentStore" />
+    </fragment>
+
+
+
+    <fragment
+        android:id="@+id/shopSearchFragment"
+        android:name="uk.co.firstchoice_cs.store.fragments.ShopSearchFragment"
+        tools:layout="@layout/shop_search_fragment"
+        android:label="ShopSearchFragment">
+        <action
+            android:id="@+id/action_storeDetailFragment_to_shops_parts_results_fragment"
+            app:destination="@id/shopPartsResultFragment" />
+        <action
+            android:id="@+id/action_storeDetailFragment_to_scannerFragment"
+            app:destination="@id/scannerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/manufacturerSearchFragment"
+        android:name="uk.co.firstchoice_cs.store.fragments.ManufacturerSearchFragment"
+        tools:layout="@layout/manufacturer_search_fragment"
+        android:label="ManufacturerFragment" >
+        <action
+            android:id="@+id/action_manufacturerSearchFragment_to_shops_part_result_fragment"
+            app:destination="@id/shopPartsResultFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/partClassesSearchFragment"
+        android:name="uk.co.firstchoice_cs.store.fragments.PartCategoriesSearchFragment"
+        tools:layout="@layout/part_classes_search_fragment"
+        android:label="PartClassesSearchFragment" >
+        <action
+            android:id="@+id/action_partClassesSearchFragment_to_shopPartsResultFragment"
+            app:destination="@id/shopPartsResultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/equipmentSearchFragment"
+        android:name="uk.co.firstchoice_cs.store.fragments.EquipmentSearchFragment"
+        tools:layout="@layout/equipment_search_fragment"
+        android:label="EquipmentSearchFragment" >
+        <action
+            android:id="@+id/action_equipmentSearchFragment_to_shopPartsResultFragment"
+            app:destination="@id/shopPartsResultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/shopPartsResultFragment"
+        android:name="uk.co.firstchoice_cs.store.fragments.ShopPartsResultFragment"
+        android:label="fragment_all_searches"
+        tools:layout="@layout/shop_parts_result_fragment" >
+        <action
+            android:id="@+id/action_shopPartsResultFragment_to_addPartFragment_store"
+            app:destination="@id/addPartFragmentStore" />
+        <action
+            android:id="@+id/action_shopPartsResultFragment_to_manuals_details_fragment_store"
+            app:destination="@id/manuals_details_fragment_store" />
+        <action
+            android:id="@+id/action_shopPartsResultFragment_to_shopModelsResultFragment_store"
+            app:destination="@id/shopModelsResultFragmentStore" />
+    </fragment>
+    <fragment
+        android:id="@+id/shopModelsResultFragmentStore"
+        tools:layout="@layout/shop_models_result_fragment"
+        android:name="uk.co.firstchoice_cs.store.fragments.ShopModelsResultFragment"
+        android:label="ShopModelsResultFragment" >
+        <action
+            android:id="@+id/action_shopModelsResultFragment_to_addPartFragment"
+            app:destination="@id/addPartFragmentStore" />
+        <action
+            android:id="@+id/action_shopModelsResultFragment_to_manuals_details_fragment_store"
+            app:destination="@id/manuals_details_fragment_store" />
+    </fragment>
+    <fragment
+        android:id="@+id/scannerFragment"
+        android:name="uk.co.firstchoice_cs.store.fragments.ScannerFragment"
+        tools:layout="@layout/scanner_fragment"
+        android:label="ScannerFragment" >
+        <action
+            android:id="@+id/action_scannerFragment_to_addPartFragment"
+            app:destination="@id/addPartFragmentStore" />
+    </fragment>
+    <fragment
+        android:id="@+id/orderFragment"
+        android:name="uk.co.firstchoice_cs.core.shared.DeliveryAddressesFragment"
+        tools:layout="@layout/fragment_delivery_addresses"
+        android:label="OrderFragment" />
+    <fragment
+        android:id="@+id/basketFragment"
+        android:name="uk.co.firstchoice_cs.core.shared.BasketFragment"
+        android:label="fragment_basket"
+        tools:layout="@layout/fragment_basket" />
+    <fragment
+        android:id="@+id/addPartFragmentStore"
+        android:name="uk.co.firstchoice_cs.store.fragments.AddPartFragmentStore"
+        android:label="fragment_add_part"
+        tools:layout="@layout/fragment_add_part" >
+        <action
+            android:id="@+id/action_addPartFragment_to_shop_models_fragment_store"
+            app:destination="@id/shopModelsResultFragment" />
+        <action
+            android:id="@+id/action_addPartFragment_to_manuals_details_fragment_store"
+            app:destination="@id/manuals_details_fragment_store" />
+        <action
+            android:id="@+id/action_addPartFragment_to_three_sixty_fragment_store"
+            app:destination="@id/threeSixtyFragmentStore" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="uk.co.firstchoice_cs.store.manuals_search.SearchFragmentStore"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_searchManufacturer"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"
+            app:destination="@id/searchManufacturer" />
+        <action
+            android:id="@+id/action_searchFragment_to_searchEquipmentTypes"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"
+            app:destination="@id/searchEquipmentTypes" />
+        <action
+            android:id="@+id/action_searchFragment_to_catalogueFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"
+            app:destination="@id/catalogueFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_manualsSearchFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"
+            app:destination="@id/manualsSearchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchManufacturer"
+        android:name="uk.co.firstchoice_cs.store.manuals_search.SearchManufacturersStore"
+        android:label="fragment_search_manufacturers"
+        tools:layout="@layout/search_manufacturer" />
+    <fragment
+        android:id="@+id/searchEquipmentTypes"
+        android:name="uk.co.firstchoice_cs.store.manuals_search.SearchEquipmentTypesStore"
+        android:label="fragment_search_equipment_types"
+        tools:layout="@layout/search_equipment" />
+
+    <fragment
+        android:id="@+id/catalogueFragment"
+        android:name="uk.co.firstchoice_cs.store.manuals_search.CatalogueFragmentStore"
+        tools:layout="@layout/catalogue_fragment"
+        android:label="CatalogueFragment" >
+        <action
+            android:id="@+id/action_catalogueFragment_to_manuals_details_fragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"
+            app:destination="@id/manuals_details_fragment_store" />
+    </fragment>
+    <fragment
+        android:id="@+id/manualsSearchFragment"
+        android:name="uk.co.firstchoice_cs.store.manuals_search.ManualsSearchResultsFragmentStore"
+        tools:layout="@layout/manuals_search_result_fragment"
+        android:label="Manuals Search Fragment" >
+        <action
+            android:id="@+id/action_manualsSearchFragment_to_manuals_details_fragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"
+            app:destination="@id/manuals_details_fragment_store" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/item_in_collections_fragment_store"
+        android:name="uk.co.firstchoice_cs.store.manuals_search.ItemInCollectionsFragmentStore"
+        android:label="Create New Collection"
+        tools:layout="@layout/item_in_collection_manuals">
+
+        <action
+            android:id="@+id/item_in_collections_fragment_to_add_edit_collections_fragment_store"
+            app:destination="@id/add_edit_collections_fragment_store"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"  />
+
+        <action
+            android:id="@+id/items_in_collections_fragment_to_collection_fragment"
+            app:destination="@id/collection_fragment_store"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"  />
+    </fragment>
+
+    <fragment
+        android:id="@+id/collection_fragment_store"
+        android:name="uk.co.firstchoice_cs.store.manuals_search.ManualDetailsFragmentStore"
+        android:label="Create New Collection"
+        tools:layout="@layout/collection_fragment">
+
+        <action
+            android:id="@+id/collection_fragment_to_items_in_collection_fragment"
+            app:destination="@id/item_in_collections_fragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"  />
+
+        <action
+            android:id="@+id/collections_fragment_to_add_edit_collections_fragment"
+            app:destination="@id/add_edit_collections_fragment_store"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"  />
+
+        <action
+            android:id="@+id/collection_fragment_to_manual_details_fragment"
+            app:destination="@id/manuals_details_fragment_store"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"  />
+
+        <action
+            android:id="@+id/action_shopModelsResultFragment_to_addPartFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"
+            app:destination="@id/addPartFragmentStore" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/manuals_details_fragment_store"
+        android:name="uk.co.firstchoice_cs.store.manuals_search.ManualDetailsFragmentStore"
+        android:label="Manuals Details"
+        tools:layout="@layout/manual_details_fragment">
+        <action
+            android:id="@+id/manual_details_fragment_to_add_to_collection_fragment_store"
+            app:destination="@id/item_in_collections_fragment_store"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/manual_details_fragment_to_add_tto_addPartFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"
+            app:destination="@id/addPartFragmentStore" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/add_edit_collections_fragment_store"
+        android:name="uk.co.firstchoice_cs.store.manuals_search.AddEditCollectionsFragmentStore"
+        android:label="Add Edit Collections Fragment"
+        tools:layout="@layout/add_edit_collections_fragment">
+    </fragment>
+
+    <fragment
+        android:id="@+id/shopModelsResultFragment"
+        tools:layout="@layout/shop_models_result_fragment"
+        android:name="uk.co.firstchoice_cs.store.fragments.ShopModelsResultFragment"
+        android:label="ShopModelsResultFragment" >
+        <action
+            android:id="@+id/action_shopModelsResultFragment_to_addPartFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"
+            app:destination="@id/addPartFragmentStore" />
+        <action
+            android:id="@+id/action_shopModelsResultFragment_to_manuals_details_fragment_store"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"
+            app:destination="@id/manuals_details_fragment_store" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/threeSixtyFragmentStore"
+        android:name="uk.co.firstchoice_cs.store.fragments.ThreeSixtyFragment"
+        tools:layout="@layout/fragment_three_sixty"
+        android:label="ThreeSixtyFragment" />
+
+</navigation>

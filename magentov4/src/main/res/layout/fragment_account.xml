@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainCoordinator"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_background"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            style="@style/FCToolBar"
+            android:showAsAction="collapseActionView|ifRoom"
+            android:theme="@style/SearchBarTheme"
+            app:itemTextColor="@color/white"
+            app:navigationIcon="@drawable/ic_navigate_before"
+            app:subtitle="Accounts"
+            app:title="Andrew Thompson" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        app:layout_constraintTop_toBottomOf="@id/app_bar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/SectionHeader"
+                android:text="@string/name" />
+
+            <View style="@style/Divider" />
+
+            <TextView
+                android:id="@+id/nameEdit"
+                style="@style/SectionItem"
+                tools:text="Andrew Thompson" />
+
+            <View style="@style/Divider" />
+
+            <TextView
+                style="@style/SectionHeader"
+                android:text="@string/company" />
+
+            <View style="@style/Divider" />
+
+            <TextView
+                android:id="@+id/companyEdit"
+                style="@style/SectionItem"
+                tools:text="First Choice Catering Spares Ltd" />
+
+            <View style="@style/Divider" />
+
+            <TextView
+                style="@style/SectionHeader"
+                android:text="@string/email_address" />
+
+            <View style="@style/Divider" />
+
+            <TextView
+                android:id="@+id/emailEdit"
+                style="@style/SectionItem"
+                tools:text="a.t@at.com" />
+
+            <View style="@style/Divider" />
+
+            <TextView
+                style="@style/SectionHeader"
+                android:text="@string/account_type" />
+
+            <View style="@style/Divider" />
+
+            <TextView
+                android:id="@+id/customerEdit"
+                style="@style/SectionItem"
+                android:text="@string/customer" />
+
+            <View style="@style/Divider" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="bottom"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <View
+                    style="@style/Divider"
+                    android:layout_above="@+id/msgText" />
+
+                <TextView
+                    android:id="@+id/msgText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/editButton"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/account_details_can_be_edited_through_our_website" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/editButton"
+                    style="@style/LargeRedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_margin="16dp"
+                    android:text="@string/edit_details">
+
+                </com.google.android.material.button.MaterialButton>
+            </RelativeLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
+

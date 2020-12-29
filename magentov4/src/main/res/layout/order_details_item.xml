@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:animateLayoutChanges="true"
+    android:paddingBottom="8dp">
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/part_image"
+        android:cropToPadding="true"
+        android:src="@drawable/placeholder"
+        app:layout_constraintEnd_toStartOf="@id/endguideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/placeholder" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/endguideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.25" />
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/manufacturerText"
+        android:layout_width="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nunitosans_regular"
+        android:singleLine="true"
+        android:textColor="@color/text_colour_1"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toTopOf="@+id/partIDText"
+        app:layout_constraintStart_toEndOf="@id/endguideline"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Rational" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/partIDText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="marquee"
+        android:fontFamily="@font/nunitosans_bold"
+        android:singleLine="true"
+        android:textColor="@color/text_colour_1"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/descriptionText"
+        app:layout_constraintStart_toEndOf="@id/endguideline"
+        app:layout_constraintTop_toBottomOf="@+id/manufacturerText"
+        tools:text="56.00.210" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/descriptionText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nunitosans_regular"
+        android:lines="2"
+        android:textAllCaps="true"
+        android:textColor="@color/text_colour_1"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/qtyText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/endguideline"
+        app:layout_constraintTop_toBottomOf="@+id/partIDText"
+        tools:text="DETERGENT CLEANER TABLETS 100PCS" />
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/qtyText"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/nunitosans_bold"
+        android:inputType="number"
+        android:singleLine="true"
+        android:text="Qty:1"
+        android:textColor="@color/text_colour_1"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/image"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionText" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/priceText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/nunitosans_bold"
+        android:inputType="number"
+        android:singleLine="true"
+        android:text="@string/zero_pounds"
+        android:textColor="@color/text_colour_1"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/qtyText"
+        app:layout_constraintStart_toEndOf="@id/qtyText" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                style="@style/FCToolBar"
+                app:navigationIcon="@drawable/ic_arrow_back_white_24dp"
+                app:title="Add To Collection" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            android:layout_height="75dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/createNewCollectionBtn"
+                style="@style/SmallRedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/create_new_collection" />
+        </RelativeLayout>
+
+        <uk.co.firstchoice_cs.core.scroll_aware.ScrollAwareRecycler
+            android:id="@+id/recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:visibility="visible"
+
+            tools:itemCount="10"
+            tools:listitem="@layout/item_in_collections_row" />
+    </LinearLayout>
+
+
+    <include android:id="@+id/emptyView"
+        android:layout_height="match_parent"
+        layout="@layout/empty_layout"
+        android:layout_width="match_parent" />
+
+
+</RelativeLayout>
